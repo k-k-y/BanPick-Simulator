@@ -1,0 +1,83 @@
+.banpick__body {
+	margin-top: 5%;
+	display: flex;
+	width: 100vw;
+	height: 70vh;
+}
+
+.banpick__body-left,
+.banpick__body-right {
+	width: 25%;
+	height: 100%;
+}
+
+.banpick__body-middle {
+	display: flex;
+	flex-direction: column;
+	width: 50%;
+	height: 100%;
+	border: 1px solid;
+	margin: 0px 5%;
+}
+
+.banpick__body__champ-info {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	height: 20%;
+	border: 1px solid;
+	align-items: center;
+}
+
+.banpick__body__champ-info .banpick__champ-role,
+.banpick__body__champ-info .banpick__champ-name,
+.banpick__body__champ-info .banpick__champ-img {
+	width: 33%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.banpick__body__champ-info img {
+	width: 50%;
+	height: 50%;
+}
+
+.banpick__body-middle__selections {
+	width: 100%;
+	height: 10%;
+	display: flex;
+	align-items: center;
+}
+
+.banpick__body-middle__role-op {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 50%;
+	height: 100%;
+}
+
+.banpick__body-middle__role-op div {
+	float: left;
+	height: 100%;
+}
+
+.banpick__body-middle__role-op div img {
+	width: 100%;
+	height: 100%;
+}
+
+.banpick__body-middle__sort-op,
+.banpick__body-middle__search-op {
+	display: flex;
+	align-items: center;
+	width: 25%;
+	height: 100%;
+}
+
+.banpick__body-middle__sort-op {
+	justify-content: flex-end;
+	margin-right: 5px;
+}
