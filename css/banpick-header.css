@@ -7,17 +7,17 @@
 }
 
 .banpick__header-left,
-.banpick__header-middle,
 .banpick__header-right {
-	width: 33%;
+	width: 25%;
 	display: flex;
-}
-
-.banpick__header-left,
-.banpick__header-right {
 	justify-content: space-between;
 	align-items: center;
 }
+
+.banpick__header-middle {
+	width: 50%;
+}
+
 .banpick__champ-img {
 	display: flex;
 	justify-content: center;
@@ -26,8 +26,8 @@
 
 .banpick__header-left img,
 .banpick__header-right img {
-	width: 90%;
-	height: 90%;
+	width: 70%;
+	height: 70%;
 }
 
 .banpick__header-middle {

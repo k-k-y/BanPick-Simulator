@@ -1,8 +1,8 @@
 .banpick__body {
-	margin-top: 5%;
+	margin-top: 20px;
 	display: flex;
 	width: 100vw;
-	height: 70vh;
+	height: 60vh;
 }
 
 .banpick__body-left,
@@ -18,6 +18,7 @@
 	height: 100%;
 	border: 1px solid;
 	margin: 0px 5%;
+	overflow: auto;
 }
 
 .banpick__body__champ-info {
@@ -45,8 +46,7 @@
 }
 
 .banpick__body-middle__selections {
-	width: 100%;
-	height: 10%;
+	height: 50px;
 	display: flex;
 	align-items: center;
 }
@@ -55,29 +55,37 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	width: 50%;
-	height: 100%;
 }
 
 .banpick__body-middle__role-op div {
-	float: left;
 	height: 100%;
+	margin-right: 15px;
 }
 
 .banpick__body-middle__role-op div img {
-	width: 100%;
-	height: 100%;
+	width: 50px;
+	height: 50px;
 }
 
-.banpick__body-middle__sort-op,
-.banpick__body-middle__search-op {
+.banpick__body-middle__champions {
 	display: flex;
-	align-items: center;
-	width: 25%;
-	height: 100%;
+	flex-direction: column;
 }
 
 .banpick__body-middle__sort-op {
-	justify-content: flex-end;
-	margin-right: 5px;
+	margin-left: 60px;
+	margin-right: 20px;
+}
+.banpick__body-middle__champs-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 640px;
+	height: 100px;
+}
+
+.banpick__body-middle__champ {
+	width: 80px;
+	height: 80px;
+	border: 1px solid;
 }

@@ -1,0 +1,59 @@
+.banpick__footers {
+	margin-top: 20px;
+	display: flex;
+	border: 1px solid;
+	width: 100%;
+	height: 25vh;
+}
+
+.banpick__footers__chat {
+	display: flex;
+	border: 1px solid red;
+	width: 30%;
+	height: 100%;
+	flex-direction: column;
+}
+
+.banpick__footers__pick-btn {
+	border: 1px solid;
+	height: 20%;
+	width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.banpick__chat__text,
+.banpick__chat__input {
+	width: 100%;
+	border: 1px solid blue;
+}
+.banpick__chat__text {
+	height: 80%;
+}
+
+.banpick__chat__input {
+	height: 20%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.banpick__chat__input input {
+	margin-left: 5px;
+	width: 90%;
+}
+
+.banpick__chat__img-box {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 10%;
+	height: 100%;
+}
+
+.banpick__chat__img-box img {
+	width: 80%;
+	height: 80%;
+	border-radius: 50%;
+}
