@@ -57,14 +57,16 @@
 	align-items: center;
 }
 
-.banpick__body-middle__role-op div {
+.banpick__body-middle__role-op button {
 	height: 100%;
 	margin-right: 15px;
-}
-
-.banpick__body-middle__role-op div img {
 	width: 50px;
 	height: 50px;
+}
+
+.banpick__body-middle__role-op button img {
+	width: 100%;
+	height: 100%;
 }
 
 .banpick__body-middle__champions {
@@ -76,16 +78,22 @@
 	margin-left: 60px;
 	margin-right: 20px;
 }
+
 .banpick__body-middle__champs-row {
 	display: flex;
-	justify-content: space-between;
 	align-items: center;
 	width: 640px;
 	height: 100px;
 }
 
 .banpick__body-middle__champ {
+	display: flex;
 	width: 80px;
 	height: 80px;
-	border: 1px solid;
+	margin: 0px 12px;
+}
+
+.banpick__body-middle__champ img {
+	width: 100%;
+	height: 100%;
 }

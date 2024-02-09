@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Document</title>
+		<title>LOL Ban Pick Simulate $ Predict</title>
 		<link rel="stylesheet" href="css/styles.css" />
 		<link rel="stylesheet" href="css/reset.css" />
 	</head>
@@ -118,21 +118,21 @@
 			<div class="banpick__body-middle">
 				<div class="banpick__body-middle__selections">
 					<div class="banpick__body-middle__role-op">
-						<div class="role-op__top">
+						<button class="role-op__top">
 							<img src="" alt="top-image" />
-						</div>
-						<div class="role-op__jungle">
+						</button>
+						<button class="role-op__jungle">
 							<img src="" alt="jungle-image" />
-						</div>
-						<div class="role-op__mid">
+						</button>
+						<button class="role-op__mid">
 							<img src="" alt="mid-image" />
-						</div>
-						<div class="role-op__adc">
+						</button>
+						<button class="role-op__adc">
 							<img src="" alt="adc-image" />
-						</div>
-						<div class="role-op__support">
+						</button>
+						<button class="role-op__support">
 							<img src="" alt="support-image" />
-						</div>
+						</button>
 					</div>
 					<div class="banpick__body-middle__sort-op">
 						<select>
@@ -146,16 +146,7 @@
 					</div>
 				</div>
 
-				<div class="banpick__body-middle__champions">
-					<div class="banpick__body-middle__champs-row">
-						<div class="banpick__body-middle__champ"></div>
-						<div class="banpick__body-middle__champ"></div>
-						<div class="banpick__body-middle__champ"></div>
-						<div class="banpick__body-middle__champ"></div>
-						<div class="banpick__body-middle__champ"></div>
-						<div class="banpick__body-middle__champ"></div>
-					</div>
-				</div>
+				<div class="banpick__body-middle__champions"></div>
 			</div>
 			<div class="banpick__body-right">
 				<div class="banpick__body__champ-info">
@@ -233,6 +224,8 @@
 			</div>
 		</div>
 
+		<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
 		<script src="app.js"></script>
+		<script src="addInitialImage.js"></script>
 	</body>
 </html>
