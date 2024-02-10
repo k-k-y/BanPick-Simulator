@@ -1,14 +1,3 @@
-const topLineURL =
-	'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-top.png';
-const jungleLineURL =
-	'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-jungle.png';
-const midLineURL =
-	'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-middle.png';
-const adcLineURL =
-	'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-bottom.png';
-const supportLineURL =
-	'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-utility.png';
-
 const championsInfoURL = 'https://ddragon.leagueoflegends.com/cdn/14.3.1/data/en_US/champion.json';
 
 const championsDiv = document.querySelector('.banpick__body-middle__champions');
@@ -19,7 +8,8 @@ function getChampNames(array, jsonData) {
 	}
 }
 
-function addImage(imgURL, name, count) {
+// add champion's images in body-middle__champions
+function addChampImage(imgURL, name, count) {
 	const champDiv = document.createElement('button');
 	champDiv.classList.add('banpick__body-middle__champ');
 
@@ -43,6 +33,7 @@ function addImage(imgURL, name, count) {
 	}
 }
 
+// request champion infors
 async function sequentialRequests() {
 	try {
 		const res = await axios.get(championsInfoURL);
@@ -54,7 +45,7 @@ async function sequentialRequests() {
 		let count = 0;
 		for (let name of champNames) {
 			const imgURL = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${name}.png`;
-			addImage(imgURL, name, count);
+			addChampImage(imgURL, name, count);
 			count++;
 		}
 	} catch (e) {
@@ -62,14 +53,4 @@ async function sequentialRequests() {
 	}
 }
 
-function addLineIcons() {
-	const line_imgs = document.querySelectorAll('.banpick__body-middle__role-op img');
-	const lineImgURLs = [topLineURL, jungleLineURL, midLineURL, adcLineURL, supportLineURL];
-
-	for (let i = 0; i < 5; i++) {
-		line_imgs[i].src = lineImgURLs[i];
-	}
-}
-
-addLineIcons();
 sequentialRequests();

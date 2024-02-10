@@ -15,19 +15,25 @@
 }
 
 .banpick__footers__pick-btn {
-	border: 1px solid;
-	height: 20%;
-	width: 40%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/action-button/button-lockin.png');
+	background-size: cover;
+	margin-left: 12vw;
+	width: 200px;
+	height: 54px;
+	color: white;
+	font-size: 16px;
 }
 
+.banpick__footers__pick-btn img {
+	width: 100%;
+	height: 100%;
+}
 .banpick__chat__text,
 .banpick__chat__input {
 	width: 100%;
 	border: 1px solid blue;
 }
+
 .banpick__chat__text {
 	height: 80%;
 }
@@ -53,7 +59,6 @@
 }
 
 .banpick__chat__img-box img {
-	width: 80%;
+	width: 70%;
 	height: 80%;
-	border-radius: 50%;
 }
