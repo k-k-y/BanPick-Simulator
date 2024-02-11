@@ -7,6 +7,5 @@ https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/a
 3. 배경화면
 https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/background/
 
-4. ring
-https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/current-player-ring.png
-https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/images/eog-solid-ring.png
+4. 밴픽 rings. ring이 돌아가는 이미지도 있음.
+https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/

@@ -3,4 +3,7 @@
 @import 'banpick-footer.css';
 
 body {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/background/background-msi2023.jpg');
+	border: 1px solid white;
+	color: white;
 }

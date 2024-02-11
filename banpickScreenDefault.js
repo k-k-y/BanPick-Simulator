@@ -48,6 +48,7 @@ async function sequentialRequests() {
 			addChampImage(imgURL, name, count);
 			count++;
 		}
+		console.log(champNames);
 	} catch (e) {
 		console.log(e);
 	}

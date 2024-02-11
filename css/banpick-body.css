@@ -22,12 +22,15 @@
 }
 
 .banpick__body__champ-info {
+	position: relative;
 	display: flex;
 	justify-content: space-between;
+	align-items: normal;
 	width: 100%;
 	height: 20%;
-	border-image: linear-gradient(to left, transparent 0%, blue 100%);
+	border-image: linear-gradient(to left, transparent 0%, goldenrod 100%);
 	border-image-slice: 1;
+
 	border-top: 2px solid;
 	align-items: center;
 }
@@ -42,26 +45,65 @@
 }
 
 .banpick__body__champ-info .banpick__champ-img {
-	width: 75px;
+	width: 72.38px;
 	height: 80%;
-	border: 3px solid;
 	border-radius: 50%;
 	margin: 0px 20px;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
+	background-color: #162022;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
 }
 
-.banpick__body__champ-info img {
-	display: none;
+/*첫 번째 밴픽 이미지 예시*/
+.banpick__body-left .banpick__body__champ-info:first-of-type .banpick__champ-img {
+	background-image: url('https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Smolder.png');
+}
+
+.banpick__ring-img {
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 105%;
+	height: 105%;
+	position: absolute;
+}
+
+.banpick__body-left .banpick__ring-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-m.png');
+}
+
+.banpick__body-right .banpick__ring-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-m-red.png');
 }
 
 .banpick__champ-text {
-	width: 66%;
+	width: 40%;
 	height: 100%;
 	display: flex;
-	border-left: 1px solid;
-	border-right: 1px solid;
 	flex-direction: column;
 	justify-content: center;
-	align-items: center;
+}
+.banpick__body-left .banpick__champ-text {
+	align-items: flex-start;
+}
+.banpick__body-right .banpick__champ-text {
+	align-items: flex-end;
+}
+
+.banpick__champ-text .banpick__text-line {
+	font-size: 14px;
+	margin-bottom: 5px;
+}
+
+.banpick__champ-text .banpick__text-champion {
+	font-size: 18px;
+	font-weight: 600;
 }
 
 .banpick__body-middle__selections {
@@ -120,4 +162,11 @@
 .banpick__body-middle__champ img {
 	width: 100%;
 	height: 100%;
+}
+
+.banpick__body__champ-info video {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }

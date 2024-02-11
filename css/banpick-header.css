@@ -26,8 +26,8 @@
 }
 
 .banpick__header .banpick__champ-img {
-	border: 2px solid;
-	opacity: 0.5;
+	border: 2px solid gray;
+	opacity: 0.7;
 	margin: 7px;
 }
 .banpick__header .banpick__champ-img img {
