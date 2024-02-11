@@ -82,6 +82,20 @@
 	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-m-red.png');
 }
 
+/*첫 번째 밴픽 링 돌아가는거 예시*/
+@keyframes rotate_img {
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.banpick__body-left .banpick__body__champ-info:first-of-type .banpick__ring-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-spinner-gold.png');
+	width: 125%;
+	height: 125%;
+	animation: rotate_img 1s linear infinite;
+}
+
 .banpick__champ-text {
 	width: 40%;
 	height: 100%;
