@@ -6,6 +6,10 @@
 	height: 25vh;
 }
 
+.banpick__footers button {
+	border: none;
+	background-color: inherit;
+}
 .banpick__footers__chat {
 	display: flex;
 	border: 1px solid red;

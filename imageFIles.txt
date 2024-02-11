@@ -1,0 +1,12 @@
+1. banpick__body left, right에 쓸 테두리
+https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/
+
+2. 돋보기 아이콘
+https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/buttons/
+
+3. 배경화면
+https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/background/
+
+4. ring
+https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/current-player-ring.png
+https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-shared-components/global/default/images/eog-solid-ring.png

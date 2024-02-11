@@ -1,4 +1,5 @@
 .banpick__header {
+	margin-top: 20px;
 	height: 50px;
 	width: 100%;
 	display: flex;
@@ -24,6 +25,15 @@
 	align-items: center;
 }
 
+.banpick__header .banpick__champ-img {
+	border: 2px solid;
+	opacity: 0.5;
+	margin: 7px;
+}
+.banpick__header .banpick__champ-img img {
+	width: 100%;
+	height: 100%;
+}
 .banpick__header-left img,
 .banpick__header-right img {
 	width: 70%;

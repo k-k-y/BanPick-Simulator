@@ -26,23 +26,42 @@
 	justify-content: space-between;
 	width: 100%;
 	height: 20%;
-	border: 1px solid;
+	border-image: linear-gradient(to left, transparent 0%, blue 100%);
+	border-image-slice: 1;
+	border-top: 2px solid;
 	align-items: center;
 }
 
-.banpick__body__champ-info .banpick__champ-role,
-.banpick__body__champ-info .banpick__champ-name,
+.banpick__body__champ-info:last-of-type {
+	border-bottom: 2px solid;
+}
+
+.banpick__body-right .banpick__body__champ-info {
+	border-image: linear-gradient(to right, transparent, red 100%);
+	border-image-slice: 1;
+}
+
 .banpick__body__champ-info .banpick__champ-img {
-	width: 33%;
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	width: 75px;
+	height: 80%;
+	border: 3px solid;
+	border-radius: 50%;
+	margin: 0px 20px;
 }
 
 .banpick__body__champ-info img {
-	width: 50%;
-	height: 50%;
+	display: none;
+}
+
+.banpick__champ-text {
+	width: 66%;
+	height: 100%;
+	display: flex;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .banpick__body-middle__selections {
@@ -57,8 +76,7 @@
 	align-items: center;
 }
 
-.banpick__body button,
-.banpick__footers button {
+.banpick__body button {
 	border: none;
 	background-color: inherit;
 }
