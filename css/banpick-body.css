@@ -17,9 +17,9 @@
 
 .banpick__body__bg-image {
 	position: absolute;
-	width: 60%;
+	width: 50%;
 	height: 120%;
-	left: 20%;
+	left: 25%;
 	top: -10%;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -201,6 +201,15 @@
 	overflow: auto;
 }
 
+.banpick__body-middle__champions::-webkit-scrollbar {
+	background-color: inherit;
+	width: 5px;
+}
+
+.banpick__body-middle__champions::-webkit-scrollbar-thumb {
+	background-color: #68512f;
+	border-radius: 5px;
+}
 .banpick__body-middle__champs-row {
 	display: flex;
 	align-items: center;
