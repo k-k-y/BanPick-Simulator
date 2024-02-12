@@ -204,6 +204,7 @@
 .banpick__body-middle__champions::-webkit-scrollbar {
 	background-color: inherit;
 	width: 4px;
+	height: 4px;
 }
 
 .banpick__body-middle__champions::-webkit-scrollbar-thumb {

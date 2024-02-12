@@ -38,7 +38,7 @@
 
 .banpick__chat__text-box {
 	height: 80%;
-	overflow: auto;
+	overflow-y: auto;
 	border-image: linear-gradient(to top, #5b5a55 0%, transparent 100%);
 	border-image-slice: 1;
 	border-left: 1px solid;
