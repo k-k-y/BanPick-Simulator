@@ -9,3 +9,7 @@ https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/a
 
 4. 밴픽 rings. ring이 돌아가는 이미지도 있음.
 https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/
+https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/champion-ring/ring-splash-dashed.png
+
+5. bar
+https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/progress-bar-back-plate.png

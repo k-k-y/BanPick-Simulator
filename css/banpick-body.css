@@ -1,10 +1,38 @@
+@keyframes rotate_img {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
 .banpick__body {
+	position: relative;
 	margin-top: 20px;
 	display: flex;
 	width: 100vw;
 	height: 60vh;
 }
 
+.banpick__body__bg-image {
+	position: absolute;
+	width: 60%;
+	height: 120%;
+	left: 20%;
+	top: -10%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	z-index: -1;
+}
+
+.banpick__body__bg-image img {
+	width: 100%;
+	height: 100%;
+	filter: blur(1px);
+	opacity: 0.6;
+}
 .banpick__body-left,
 .banpick__body-right {
 	width: 25%;
@@ -16,9 +44,8 @@
 	flex-direction: column;
 	width: 50%;
 	height: 100%;
-	border: 1px solid;
 	margin: 0px 5%;
-	overflow: auto;
+	border-bottom: 1px solid #5b5a55;
 }
 
 .banpick__body__champ-info {
@@ -30,7 +57,6 @@
 	height: 20%;
 	border-image: linear-gradient(to left, transparent 0%, goldenrod 100%);
 	border-image-slice: 1;
-
 	border-top: 2px solid;
 	align-items: center;
 }
@@ -83,12 +109,6 @@
 }
 
 /*첫 번째 밴픽 링 돌아가는거 예시*/
-@keyframes rotate_img {
-	100% {
-		transform: rotate(360deg);
-	}
-}
-
 .banpick__body-left .banpick__body__champ-info:first-of-type .banpick__ring-img {
 	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-spinner-gold.png');
 	width: 125%;
@@ -121,11 +141,13 @@
 }
 
 .banpick__body-middle__selections {
+	width: 100%;
 	height: 50px;
 	display: flex;
 	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid #5b5a55;
 }
-
 .banpick__body-middle__role-op {
 	display: flex;
 	justify-content: space-between;
@@ -149,14 +171,34 @@
 	height: 100%;
 }
 
+.banpick__body-middle__search-op {
+	width: 40%;
+	height: 60%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid #5b5a55;
+}
+
+.banpick__body-middle__search-op img {
+	width: 20px;
+	height: 20px;
+	opacity: 0.5;
+	margin: 0px 5px;
+}
+
+.banpick__body-middle__search-op input {
+	width: 100%;
+	height: 100%;
+	background-color: transparent;
+	border: none;
+	color: #5b5a55;
+}
+
 .banpick__body-middle__champions {
 	display: flex;
 	flex-direction: column;
-}
-
-.banpick__body-middle__sort-op {
-	margin-left: 60px;
-	margin-right: 20px;
+	overflow: auto;
 }
 
 .banpick__body-middle__champs-row {
@@ -170,12 +212,13 @@
 	display: flex;
 	width: 80px;
 	height: 80px;
-	margin: 0px 12px;
+	margin: 12px 12px;
 }
 
 .banpick__body-middle__champ img {
 	width: 100%;
 	height: 100%;
+	border: 2px double #5b5a55;
 }
 
 .banpick__body__champ-info video {

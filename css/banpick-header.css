@@ -29,6 +29,7 @@
 	border: 2px solid gray;
 	opacity: 0.7;
 	margin: 7px;
+	background-color: black;
 }
 .banpick__header .banpick__champ-img img {
 	width: 100%;
@@ -50,10 +51,13 @@
 }
 
 .banpick__header-middle__top {
-	font-size: 20px;
+	font-size: 25px;
 	font-weight: 700;
-	color: teal;
 	margin-bottom: 2px;
+}
+
+.banpick__header-middle__num-count span {
+	font-size: 30px;
 }
 .banpick__header-middle__bottom {
 	display: flex;
@@ -61,14 +65,15 @@
 
 .banpick__header-middle__left-bar,
 .banpick__header-middle__right-bar {
-	margin: 5px;
-	width: 10vw;
-	height: 5px;
+	margin: 10px;
+	width: 20vw;
+	height: 4px;
+	filter: blur(0.5px);
 }
 
 .banpick__header-middle__left-bar {
-	background-color: tomato;
+	background: linear-gradient(to left, red 0%, white 100%);
 }
 .banpick__header-middle__right-bar {
-	background-color: blue;
+	background: linear-gradient(to right, red 0%, white 100%);
 }
