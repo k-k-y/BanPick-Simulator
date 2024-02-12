@@ -58,14 +58,14 @@
 }
 
 .banpick__chat__text {
-	margin: 5px 10px;
+	margin: 3px 10px;
 }
 .banpick__chat__input {
 	height: 20%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	border: 1.5px solid #5b5a55;
+	border: 1px solid #5b5a55;
 }
 
 .banpick__chat__input input {
