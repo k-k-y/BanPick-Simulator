@@ -203,13 +203,14 @@
 
 .banpick__body-middle__champions::-webkit-scrollbar {
 	background-color: inherit;
-	width: 5px;
+	width: 4px;
 }
 
 .banpick__body-middle__champions::-webkit-scrollbar-thumb {
 	background-color: #68512f;
 	border-radius: 5px;
 }
+
 .banpick__body-middle__champs-row {
 	display: flex;
 	align-items: center;

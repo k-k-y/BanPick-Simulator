@@ -9,7 +9,7 @@
 
 .banpick__header-left,
 .banpick__header-right {
-	width: 25%;
+	width: 18%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -27,7 +27,7 @@
 
 .banpick__header .banpick__champ-img {
 	border: 2px solid gray;
-	opacity: 0.7;
+	opacity: 0.2;
 	margin: 7px;
 	background-color: black;
 }

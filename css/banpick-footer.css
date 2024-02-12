@@ -1,7 +1,6 @@
 .banpick__footers {
 	margin-top: 20px;
 	display: flex;
-	border: 1px solid;
 	width: 100%;
 	height: 25vh;
 }
@@ -10,9 +9,9 @@
 	border: none;
 	background-color: inherit;
 }
+
 .banpick__footers__chat {
 	display: flex;
-	border: 1px solid red;
 	width: 30%;
 	height: 100%;
 	flex-direction: column;
@@ -32,26 +31,50 @@
 	width: 100%;
 	height: 100%;
 }
-.banpick__chat__text,
+.banpick__chat__text-box,
 .banpick__chat__input {
 	width: 100%;
-	border: 1px solid blue;
+}
+
+.banpick__chat__text-box {
+	height: 80%;
+	overflow: auto;
+	border-image: linear-gradient(to top, #5b5a55 0%, transparent 100%);
+	border-image-slice: 1;
+	border-left: 1px solid;
+	border-right: 1px solid;
+	display: flex;
+	flex-direction: column-reverse;
+}
+
+.banpick__chat__text-box::-webkit-scrollbar {
+	background-color: inherit;
+	width: 2px;
+}
+
+.banpick__chat__text-box::-webkit-scrollbar-thumb {
+	background-color: #68512f;
+	border-radius: 5px;
 }
 
 .banpick__chat__text {
-	height: 80%;
+	margin: 5px 10px;
 }
-
 .banpick__chat__input {
 	height: 20%;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border: 1.5px solid #5b5a55;
 }
 
 .banpick__chat__input input {
 	margin-left: 5px;
+	height: 100%;
 	width: 90%;
+	border: none;
+	background-color: transparent;
+	color: #5b5a55;
 }
 
 .banpick__chat__img-box {
@@ -60,9 +83,20 @@
 	align-items: center;
 	width: 10%;
 	height: 100%;
+
+	border-right: 1px solid #5b5a55;
+	border-image: linear-gradient(
+		to top,
+		transparent 0%,
+		transparent 20%,
+		#5b5a55 50%,
+		transparent 80%,
+		transparent 100%
+	);
+	border-image-slice: 1;
 }
 
 .banpick__chat__img-box img {
-	width: 70%;
-	height: 80%;
+	width: 60%;
+	height: 70%;
 }
