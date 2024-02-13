@@ -5,6 +5,7 @@ const adcBtn = document.querySelector('.role-op__adc-disabled');
 const supportBtn = document.querySelector('.role-op__support-disabled');
 
 const btnArray = [topBtn, jungleBtn, midBtn, adcBtn, supportBtn];
+const btnName = ['top', 'jungle', 'mid', 'adc', 'support'];
 let isBtnChange = false;
 
 function handleMouseoverBtn(num, name) {
@@ -25,50 +26,14 @@ function handleClickBtn(num, name) {
 	}
 }
 
-topBtn.addEventListener('mouseover', () => {
-	handleMouseoverBtn(0, 'top');
-});
-jungleBtn.addEventListener('mouseover', () => {
-	handleMouseoverBtn(1, 'jungle');
-});
-midBtn.addEventListener('mouseover', () => {
-	handleMouseoverBtn(2, 'mid');
-});
-adcBtn.addEventListener('mouseover', () => {
-	handleMouseoverBtn(3, 'adc');
-});
-supportBtn.addEventListener('mouseover', () => {
-	handleMouseoverBtn(4, 'support');
-});
-
-topBtn.addEventListener('mouseout', () => {
-	handleMouseoutBtn(0, 'top');
-});
-jungleBtn.addEventListener('mouseout', () => {
-	handleMouseoutBtn(1, 'jungle');
-});
-midBtn.addEventListener('mouseout', () => {
-	handleMouseoutBtn(2, 'mid');
-});
-adcBtn.addEventListener('mouseout', () => {
-	handleMouseoutBtn(3, 'adc');
-});
-supportBtn.addEventListener('mouseout', () => {
-	handleMouseoutBtn(4, 'support');
-});
-
-topBtn.addEventListener('click', () => {
-	handleClickBtn(0, 'top');
-});
-jungleBtn.addEventListener('click', () => {
-	handleClickBtn(1, 'jungle');
-});
-midBtn.addEventListener('click', () => {
-	handleClickBtn(2, 'mid');
-});
-adcBtn.addEventListener('click', () => {
-	handleClickBtn(3, 'adc');
-});
-supportBtn.addEventListener('click', () => {
-	handleClickBtn(4, 'support');
-});
+for (let i = 0; i < 5; i++) {
+	btnArray[i].addEventListener('mouseover', () => {
+		handleMouseoverBtn(i, btnName[i]);
+	});
+	btnArray[i].addEventListener('mouseout', () => {
+		handleMouseoutBtn(i, btnName[i]);
+	});
+	btnArray[i].addEventListener('click', () => {
+		handleClickBtn(i, btnName[i]);
+	});
+}
