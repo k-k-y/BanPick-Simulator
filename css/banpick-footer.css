@@ -18,8 +18,6 @@
 }
 
 .banpick__footers__pick-btn {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/action-button/button-lockin.png');
-	background-size: cover;
 	margin-left: 12vw;
 	width: 200px;
 	height: 54px;
@@ -27,10 +25,15 @@
 	font-size: 16px;
 }
 
-.banpick__footers__pick-btn img {
-	width: 100%;
-	height: 100%;
+.banpick__footers__pick-btn__bg-default {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/action-button/button-lockin.png');
+	background-size: cover;
 }
+.banpick__footers__pick-btn__bg-ban {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/action-button/button-ban.png');
+	background-size: cover;
+}
+
 .banpick__chat__text-box,
 .banpick__chat__input {
 	width: 100%;
@@ -75,6 +78,7 @@
 	border: none;
 	background-color: transparent;
 	color: #5b5a55;
+	outline: none;
 }
 
 .banpick__chat__img-box {
