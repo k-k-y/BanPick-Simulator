@@ -1,4 +1,5 @@
 // create default banpick screen
+
 const championsInfoURL = 'https://ddragon.leagueoflegends.com/cdn/14.3.1/data/en_US/champion.json';
 const championsDiv = document.querySelector('.banpick__body-middle__champions');
 const allChampNames = [];
@@ -9,7 +10,8 @@ function getAllChampNames(array, jsonData) {
 	}
 }
 
-// add champion's images in body-middle__champions
+// add all champion's image
+
 function addChampImage(imgURL, name, count) {
 	const champDiv = document.createElement('button');
 	champDiv.classList.add('banpick__body-middle__champ');
@@ -48,7 +50,10 @@ async function sequentialRequests() {
 }
 
 sequentialRequests();
+
 // ------------------------------------------------------------------------------------
+
+// about roleOpButtons
 
 const topBtn = document.querySelector('.role-op__top-disabled');
 const jungleBtn = document.querySelector('.role-op__jungle-disabled');
@@ -59,6 +64,8 @@ const supportBtn = document.querySelector('.role-op__support-disabled');
 const btnArray = [topBtn, jungleBtn, midBtn, adcBtn, supportBtn];
 const btnName = ['top', 'jungle', 'mid', 'adc', 'support'];
 let isBtnChange = false;
+
+// handle event functions of roleOpButtons.
 
 function handleMouseoverBtn(num, name) {
 	if (!isBtnChange) btnArray[num].classList.add(`role-op__${name}-hover`);
@@ -81,6 +88,32 @@ function handleClickBtn(num, name, champArray) {
 		setChampImageByArray(champArray);
 	}
 }
+
+// delete image & create image functions
+
+function deleteAllChampImage() {
+	const allChampDivs = document.querySelectorAll('.banpick__body-middle__champ');
+	const allChampRows = document.querySelectorAll('.banpick__body-middle__champs-row');
+
+	for (let champ of allChampDivs) {
+		champ.remove();
+	}
+	for (let row of allChampRows) {
+		row.remove();
+	}
+}
+
+function setChampImageByArray(nameArray) {
+	deleteAllChampImage();
+	let count = 0;
+	for (let name of nameArray) {
+		const imgURL = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${name}.png`;
+		addChampImage(imgURL, name, count);
+		count++;
+	}
+}
+
+// add eventlistener of roleOpButtons. mouseover, mouseout, click.
 
 for (let i = 0; i < 5; i++) {
 	btnArray[i].addEventListener('mouseover', () => {
@@ -107,27 +140,7 @@ btnArray[4].addEventListener('click', () => {
 	handleClickBtn(4, btnName[4], supportChampNames);
 });
 
-function deleteAllChampImage() {
-	const allChampDivs = document.querySelectorAll('.banpick__body-middle__champ');
-	const allChampRows = document.querySelectorAll('.banpick__body-middle__champs-row');
-
-	for (let champ of allChampDivs) {
-		champ.remove();
-	}
-	for (let row of allChampRows) {
-		row.remove();
-	}
-}
-
-function setChampImageByArray(nameArray) {
-	deleteAllChampImage();
-	let count = 0;
-	for (let name of nameArray) {
-		const imgURL = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${name}.png`;
-		addChampImage(imgURL, name, count);
-		count++;
-	}
-}
+// champ name arrays by position
 
 const topChampNames = [
 	'Aatrox',
@@ -329,3 +342,5 @@ const supportChampNames = [
 	'Zilean',
 	'Zyra',
 ];
+
+// ------------------------------------------------------------------------------------
