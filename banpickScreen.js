@@ -37,6 +37,7 @@ function addChampImage(imgURL, name, count) {
 }
 
 // request champion infors
+
 async function sequentialRequests() {
 	try {
 		const res = await axios.get(championsInfoURL);
@@ -78,12 +79,20 @@ function handleMouseoutBtn(num, name) {
 // change button image & sorting champion image by position
 
 function handleClickBtn(num, name, champArray) {
-	if (btnArray[num].classList.contains(`role-op__${name}-selected`)) {
+	console.log(sortingBy);
+	if (sortingBy === num + 1) {
+		// click already selected -> set default
 		btnArray[num].classList.remove(`role-op__${name}-selected`);
 		sortingBy = 0;
 		deleteAllChampImage();
 		setChampImageByArray(allChampNames);
-	} else if (!btnArray[num].classList.contains(`role-op__${name}-selected`) && !sortingBy) {
+	} else {
+		// click not selected -> set selected to disabled, clicked to selected
+		for (let i = 0; i < 4; i++) {
+			if (btnArray[i].classList.contains(`role-op__${btnName[i]}-selected`)) {
+				btnArray[i].classList = `role-op__${btnName[i]}-disabled`;
+			}
+		}
 		btnArray[num].classList.add(`role-op__${name}-selected`);
 		sortingBy = num + 1;
 		deleteAllChampImage();
