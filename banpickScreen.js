@@ -63,27 +63,29 @@ const supportBtn = document.querySelector('.role-op__support-disabled');
 
 const btnArray = [topBtn, jungleBtn, midBtn, adcBtn, supportBtn];
 const btnName = ['top', 'jungle', 'mid', 'adc', 'support'];
-let isBtnChange = false;
+let sortingBy = 0; // 0: default, 1: top ... 5: support
 
 // handle event functions of roleOpButtons.
 
 function handleMouseoverBtn(num, name) {
-	if (!isBtnChange) btnArray[num].classList.add(`role-op__${name}-hover`);
+	if (sortingBy === 0) btnArray[num].classList.add(`role-op__${name}-hover`);
 }
 
 function handleMouseoutBtn(num, name) {
-	if (!isBtnChange) btnArray[num].classList.remove(`role-op__${name}-hover`);
+	if (sortingBy === 0) btnArray[num].classList.remove(`role-op__${name}-hover`);
 }
+
+// change button image & sorting champion image by position
 
 function handleClickBtn(num, name, champArray) {
 	if (btnArray[num].classList.contains(`role-op__${name}-selected`)) {
 		btnArray[num].classList.remove(`role-op__${name}-selected`);
-		isBtnChange = false;
+		sortingBy = 0;
 		deleteAllChampImage();
 		setChampImageByArray(allChampNames);
-	} else if (!btnArray[num].classList.contains(`role-op__${name}-selected`) && !isBtnChange) {
+	} else if (!btnArray[num].classList.contains(`role-op__${name}-selected`) && !sortingBy) {
 		btnArray[num].classList.add(`role-op__${name}-selected`);
-		isBtnChange = true;
+		sortingBy = num + 1;
 		deleteAllChampImage();
 		setChampImageByArray(champArray);
 	}
@@ -113,6 +115,72 @@ function setChampImageByArray(nameArray) {
 	}
 }
 
+// ------------------------------------------------------------------------------------
+
+// implement search function
+
+const searcher = document.querySelector('.banpick__body-middle__search-op input');
+
+function searchByInput(event) {
+	deleteAllChampImage();
+	const inputValue = event.target.value;
+	let arr = [];
+	let count = 0;
+	console.log(sortingBy);
+	switch (sortingBy) {
+		case 0:
+			arr = allChampNames;
+			break;
+		case 1:
+			arr = topChampNames;
+			break;
+		case 2:
+			arr = jungleChampNames;
+			break;
+		case 3:
+			arr = midChampNames;
+			break;
+		case 4:
+			arr = adcChampNames;
+			break;
+		case 5:
+			arr = supportChampNames;
+			break;
+		default:
+			break;
+	}
+
+	// if input is blank, set default state
+	if (inputValue === '') {
+		setChampImageByArray(arr);
+		return;
+	}
+
+	for (let champ of arr) {
+		let isSearched = true;
+		if (inputValue.length <= champ.length) {
+			for (let i = 0; i < inputValue.length; i++) {
+				// without distinction of upper, lower case
+				if (inputValue[i].toUpperCase() !== champ[i].toUpperCase()) {
+					isSearched = false;
+				}
+			}
+		} else {
+			isSearched = false;
+		}
+
+		if (isSearched === true) {
+			const imgURL = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${champ}.png`;
+			addChampImage(imgURL, champ, count);
+			count++;
+		}
+
+		console.log;
+	}
+
+	console.log(inputValue);
+}
+
 // add eventlistener of roleOpButtons. mouseover, mouseout, click.
 
 for (let i = 0; i < 5; i++) {
@@ -139,6 +207,12 @@ btnArray[3].addEventListener('click', () => {
 btnArray[4].addEventListener('click', () => {
 	handleClickBtn(4, btnName[4], supportChampNames);
 });
+
+// add event listener of input search function
+
+searcher.addEventListener('input', searchByInput);
+
+// ------------------------------------------------------------------------------------
 
 // champ name arrays by position
 

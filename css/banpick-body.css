@@ -8,31 +8,17 @@
 }
 
 .banpick__body {
-	position: relative;
 	margin-top: 20px;
 	display: flex;
 	width: 100vw;
 	height: 60vh;
 }
 
-.banpick__body__bg-image {
-	position: absolute;
-	width: 50%;
-	height: 120%;
-	left: 25%;
-	top: -10%;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
-	z-index: -1;
+.banpick__body button {
+	border: none;
+	background-color: inherit;
 }
 
-.banpick__body__bg-image img {
-	width: 100%;
-	height: 100%;
-	filter: blur(1px);
-	opacity: 0.6;
-}
 .banpick__body-left,
 .banpick__body-right {
 	width: 25%;
@@ -142,7 +128,7 @@
 
 .banpick__body-middle__selections {
 	width: 100%;
-	height: 50px;
+	height: 40px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -152,11 +138,6 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-}
-
-.banpick__body button {
-	border: none;
-	background-color: inherit;
 }
 
 .banpick__body-middle__role-op button {
