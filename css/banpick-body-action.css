@@ -47,7 +47,7 @@
 }
 
 .banpick__body-middle__champ-img-box:hover {
-	border-color: #ccbe91;
+	border: 2px solid #ccbe91;
 }
 
 .champ-selected {
