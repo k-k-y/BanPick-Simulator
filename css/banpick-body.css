@@ -206,12 +206,17 @@
 	margin: 12px 12px;
 }
 
-.banpick__body-middle__champ img {
+.banpick__body-middle__champ-img-box {
+	display: flex;
 	width: 100%;
 	height: 100%;
 	border: 2px double #5b5a55;
 }
 
+.banpick__body-middle__champ-img-box img {
+	width: 100%;
+	height: 100%;
+}
 .banpick__body__champ-info video {
 	position: absolute;
 	width: 100%;

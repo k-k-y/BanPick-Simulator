@@ -16,6 +16,9 @@ function addChampImage(imgURL, name, count) {
 	const champDiv = document.createElement('button');
 	champDiv.classList.add('banpick__body-middle__champ');
 
+	const imgBox = document.createElement('div');
+	imgBox.classList.add('banpick__body-middle__champ-img-box');
+
 	const img = document.createElement('img');
 	img.src = imgURL;
 	img.alt = name;
@@ -26,12 +29,14 @@ function addChampImage(imgURL, name, count) {
 		champRow.classList.add('banpick__body-middle__champs-row');
 		championsDiv.appendChild(champRow);
 
-		champDiv.appendChild(img);
+		imgBox.appendChild(img);
+		champDiv.appendChild(imgBox);
 		champRow.appendChild(champDiv);
 	} else {
 		const champRow = document.querySelector('.banpick__body-middle__champs-row:last-of-type');
 
-		champDiv.appendChild(img);
+		imgBox.appendChild(img);
+		champDiv.appendChild(imgBox);
 		champRow.appendChild(champDiv);
 	}
 }
@@ -44,7 +49,6 @@ async function sequentialRequests() {
 		const jsonData = res.data.data;
 		getAllChampNames(allChampNames, jsonData);
 		setChampImageByArray(allChampNames);
-		console.log(allChampNames);
 	} catch (e) {
 		console.log(e);
 	}
@@ -79,7 +83,6 @@ function handleMouseoutBtn(num, name) {
 // change button image & sorting champion image by position
 
 function handleClickBtn(num, name, champArray) {
-	console.log(sortingBy);
 	if (sortingBy === num + 1) {
 		// click already selected -> set default
 		btnArray[num].classList.remove(`role-op__${name}-selected`);
@@ -88,7 +91,7 @@ function handleClickBtn(num, name, champArray) {
 		setChampImageByArray(allChampNames);
 	} else {
 		// click not selected -> set selected to disabled, clicked to selected
-		for (let i = 0; i < 4; i++) {
+		for (let i = 0; i < 5; i++) {
 			if (btnArray[i].classList.contains(`role-op__${btnName[i]}-selected`)) {
 				btnArray[i].classList = `role-op__${btnName[i]}-disabled`;
 			}
@@ -183,14 +186,53 @@ function searchByInput(event) {
 			addChampImage(imgURL, champ, count);
 			count++;
 		}
-
-		console.log;
 	}
-
-	console.log(inputValue);
 }
 
-// add eventlistener of roleOpButtons. mouseover, mouseout, click.
+// implement champion hover, clicked function
+
+let clickedElement = null;
+
+function deleteDisabled() {
+	if (clickedElement !== null) {
+		clickedElement.classList.remove('champ-block-pointer');
+		clickedElement.firstChild.classList.remove('champ-block-pointer', 'champ-selected__border');
+		clickedElement.firstChild.firstChild.classList.remove('champ-block-pointer', 'champ-selected');
+	}
+}
+
+function selectChamp(cur) {
+	if (cur.tagName === 'BUTTON') {
+		cur.classList.add('champ-block-pointer');
+		cur.firstChild.classList.add('champ-selected__border', 'champ-block-pointer');
+		cur.firstChild.firstChild.classList.add('champ-selected', 'champ-block-pointer');
+		clickedElement = cur;
+	} else if (cur.tagName === 'DIV') {
+		cur.parentElement.classList.add('champ-block-pointer');
+		cur.classList.add('champ-selected__border', 'champ-block-pointer');
+		cur.firstChild.classList.add('champ-selected', 'champ-block-pointer');
+		clickedElement = cur.parentElement;
+	} else if (cur.tagName === 'IMG') {
+		cur.parentElement.parentElement.classList.add('champ-block-pointer');
+		cur.parentElement.classList.add('champ-selected__border', 'champ-block-pointer');
+		cur.classList.add('champ-selected', 'champ-block-pointer');
+		clickedElement = cur.parentElement.parentElement;
+	}
+}
+
+function handleClickChamp(event) {
+	event.stopPropagation();
+
+	const cur = event.target;
+	console.log(cur);
+
+	if (cur.matches('.banpick__body-middle__champ, .banpick__body-middle__champ div, .banpick__body-middle__champ img')) {
+		deleteDisabled();
+		selectChamp(cur);
+	}
+}
+
+// add eventlistener
 
 for (let i = 0; i < 5; i++) {
 	btnArray[i].addEventListener('mouseover', () => {
@@ -217,9 +259,13 @@ btnArray[4].addEventListener('click', () => {
 	handleClickBtn(4, btnName[4], supportChampNames);
 });
 
-// add event listener of input search function
+// eventListener for search function
 
 searcher.addEventListener('input', searchByInput);
+
+// eventListener for select champion function
+
+championsDiv.addEventListener('click', handleClickChamp);
 
 // ------------------------------------------------------------------------------------
 

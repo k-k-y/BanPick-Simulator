@@ -48,6 +48,7 @@
 	border-right: 1px solid;
 	display: flex;
 	flex-direction: column-reverse;
+	opacity: 0.6;
 }
 
 .banpick__chat__text-box::-webkit-scrollbar {
@@ -77,7 +78,7 @@
 	width: 90%;
 	border: none;
 	background-color: transparent;
-	color: #5b5a55;
+	color: white;
 	outline: none;
 }
 
@@ -87,7 +88,6 @@
 	align-items: center;
 	width: 10%;
 	height: 100%;
-
 	border-right: 1px solid #5b5a55;
 	border-image: linear-gradient(
 		to top,

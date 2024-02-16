@@ -46,6 +46,17 @@
 	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-utility.png');
 }
 
-.banpick__body-middle__champ:hover img {
+.banpick__body-middle__champ-img-box:hover {
 	border-color: #ccbe91;
+}
+
+.champ-selected {
+	filter: grayscale(100%);
+}
+
+.champ-selected__border {
+	border-color: yellow;
+}
+.champ-block-pointer {
+	pointer-events: none;
 }
