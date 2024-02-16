@@ -55,7 +55,7 @@
 }
 
 .champ-selected__border {
-	border-color: yellow;
+	border: 2px solid #ccbe91;
 }
 .champ-block-pointer {
 	pointer-events: none;
