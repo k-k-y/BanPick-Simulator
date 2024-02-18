@@ -48,7 +48,6 @@
 	border-right: 1px solid;
 	display: flex;
 	flex-direction: column-reverse;
-	opacity: 0.6;
 }
 
 .banpick__chat__text-box::-webkit-scrollbar {
@@ -62,8 +61,16 @@
 }
 
 .banpick__chat__text {
-	margin: 3px 10px;
+	margin: 4px 12px;
 }
+.banpick__chat__text span:first-child {
+	color: #19c5e1;
+}
+
+.banpick__chat__text span:last-child {
+	color: white;
+}
+
 .banpick__chat__input {
 	height: 20%;
 	display: flex;

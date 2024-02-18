@@ -39,6 +39,13 @@ function addChampImage(imgURL, name, count) {
 		champDiv.appendChild(imgBox);
 		champRow.appendChild(champDiv);
 	}
+
+	if (clickedElement !== null && clickedElement.firstChild.firstChild.alt === name) {
+		champDiv.classList.add('champ-block-pointer');
+		imgBox.classList.add('champ-selected__border', 'champ-block-pointer');
+		img.classList.add('champ-selected', 'champ-block-pointer');
+		clickedElement = champDiv;
+	}
 }
 
 // request champion infors
@@ -138,7 +145,7 @@ function searchByInput(event) {
 	const inputValue = event.target.value;
 	let arr = [];
 	let count = 0;
-	console.log(sortingBy);
+
 	switch (sortingBy) {
 		case 0:
 			arr = allChampNames;
@@ -224,7 +231,6 @@ function handleClickChamp(event) {
 	event.stopPropagation();
 
 	const cur = event.target;
-	console.log(cur);
 
 	if (cur.matches('.banpick__body-middle__champ, .banpick__body-middle__champ div, .banpick__body-middle__champ img')) {
 		deleteDisabled();
@@ -232,6 +238,42 @@ function handleClickChamp(event) {
 	}
 }
 
+// implement of text input functions
+
+const inputBox = document.querySelector('#banpick-input');
+let composing = false;
+
+function handlePressEnter(event) {
+	// prevent to enter twice (because of Korean language)
+	if (event.isComposing) {
+		return;
+	}
+
+	if (event.key === 'Enter' && inputBox.value !== '') {
+		createText(inputBox.value);
+	}
+}
+
+function createText(value) {
+	const textBox = document.querySelector('.banpick__chat__text-box');
+	const text = document.createElement('div');
+	text.classList.add('banpick__chat__text');
+
+	const span1 = document.createElement('span');
+	const span2 = document.createElement('span');
+	span1.innerText = 'Player 1';
+	span2.innerText = ` : ${value}`;
+
+	text.appendChild(span1);
+	text.appendChild(span2);
+	textBox.prepend(text);
+
+	// clear input
+	inputBox.value = '';
+
+	// place scrollbar to bottom
+	textBox.scrollTop = textBox.scrollHeight;
+}
 // add eventlistener
 
 for (let i = 0; i < 5; i++) {
@@ -266,6 +308,10 @@ searcher.addEventListener('input', searchByInput);
 // eventListener for select champion function
 
 championsDiv.addEventListener('click', handleClickChamp);
+
+// eventListener for input text
+
+inputBox.addEventListener('keydown', handlePressEnter);
 
 // ------------------------------------------------------------------------------------
 
