@@ -56,6 +56,12 @@
 	margin-bottom: 2px;
 }
 
+.banpick__header-middle__num-count {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	justify-content: center;
+}
 .banpick__header-middle__num-count span {
 	font-size: 30px;
 }
@@ -63,6 +69,14 @@
 	display: flex;
 }
 
+@keyframes barDecrease {
+	from {
+		transform: scaleX(1);
+	}
+	to {
+		transform: scaleX(0);
+	}
+}
 .banpick__header-middle__left-bar,
 .banpick__header-middle__right-bar {
 	margin: 10px;
@@ -71,9 +85,14 @@
 	filter: blur(0.5px);
 }
 
+.bar-decrease-30 {
+	animation: barDecrease 30s linear;
+}
 .banpick__header-middle__left-bar {
 	background: linear-gradient(to left, red 0%, white 100%);
+	transform-origin: right center;
 }
 .banpick__header-middle__right-bar {
 	background: linear-gradient(to right, red 0%, white 100%);
+	transform-origin: left center;
 }

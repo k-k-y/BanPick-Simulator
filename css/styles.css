@@ -1,9 +1,9 @@
 @import 'banpick-header.css';
 @import 'banpick-body.css';
 @import 'banpick-footer.css';
-@import 'banpick-footer-action.css';
+@import 'banpick-header-action.css';
 @import 'banpick-body-action.css';
-
+@import 'banpick-footer-action.css';
 body {
 	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/background/background-msi2023.jpg');
 	color: white;

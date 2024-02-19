@@ -36,7 +36,6 @@
 
 .champ-selected {
 	filter: grayscale(100%);
-	transition: all 0.2s;
 }
 
 .champ-selected__border {

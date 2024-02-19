@@ -274,6 +274,33 @@ function createText(value) {
 	// place scrollbar to bottom
 	textBox.scrollTop = textBox.scrollHeight;
 }
+
+// implement countdown function (Rough version)
+
+function countDown(sec) {
+	const countText = document.querySelector('.banpick__header-middle__num-count span');
+	let count = sec;
+
+	if (!isCounting) {
+		isCounting = true;
+		const id = setInterval(() => {
+			if (count === -1) {
+				clearInterval(id);
+				isCounting = false;
+			} else {
+				countText.innerText = count;
+				count--;
+			}
+		}, 1000);
+	}
+}
+
+const readyBtn = document.querySelector('#ready-btn');
+let isCounting = false;
+readyBtn.addEventListener('click', () => {
+	countDown(10);
+});
+
 // add eventlistener
 
 for (let i = 0; i < 5; i++) {
@@ -301,15 +328,9 @@ btnArray[4].addEventListener('click', () => {
 	handleClickBtn(4, btnName[4], supportChampNames);
 });
 
-// eventListener for search function
-
 searcher.addEventListener('input', searchByInput);
 
-// eventListener for select champion function
-
 championsDiv.addEventListener('click', handleClickChamp);
-
-// eventListener for input text
 
 inputBox.addEventListener('keydown', handlePressEnter);
 
