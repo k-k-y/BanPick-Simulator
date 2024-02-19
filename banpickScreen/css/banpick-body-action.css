@@ -42,6 +42,14 @@
 	border: 2px solid #c5223d;
 }
 
+.champ-hover-selected__border {
+	border: 2px solid #ccbe91;
+}
+
+.champ-hover-banned__border {
+	border: 2px solid #c5223d;
+}
+
 .champ-block-pointer {
 	pointer-events: none;
 }

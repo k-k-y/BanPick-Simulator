@@ -34,7 +34,7 @@ function addChampImage(imgURL, name, count) {
 	champName.innerText = name;
 	champDiv.appendChild(champName);
 
-	// create selected champion
+	// create selected champion just before
 	if (clickedElement !== null && clickedElement.firstChild.firstChild.alt === name) {
 		champDiv.classList.add('champ-block-pointer');
 		imgBox.classList.add('champ-selected__border', 'champ-block-pointer');
@@ -42,6 +42,7 @@ function addChampImage(imgURL, name, count) {
 		clickedElement = champDiv;
 	}
 
+	// create banned | selected champions
 	if (bannedChampArray.includes(name)) {
 		champDiv.classList.add('champ-block-pointer');
 		imgBox.classList.add('champ-block-pointer');

@@ -12,7 +12,7 @@ function deleteDisabled() {
 
 	if (clickedElement !== null) {
 		clickedElement.classList.remove('champ-block-pointer');
-		clickedElement.firstChild.classList.remove('champ-block-pointer');
+		clickedElement.firstChild.classList.remove('champ-block-pointer', `champ-${status}__border`);
 		clickedElement.firstChild.firstChild.classList.remove('champ-block-pointer', 'champ-selected');
 	}
 }
@@ -26,7 +26,7 @@ function selectChamp(cur) {
 	}
 
 	cur.classList.add('champ-block-pointer');
-	cur.firstChild.classList.add('champ-block-pointer');
+	cur.firstChild.classList.add('champ-block-pointer', `champ-${status}__border`);
 	cur.firstChild.firstChild.classList.add('champ-selected', 'champ-block-pointer');
 	clickedElement = cur;
 }
@@ -57,11 +57,11 @@ function handleMouseoverChamp(event) {
 	}
 
 	if (cur.matches('.banpick__body-middle__champ div')) {
-		cur.classList.add(`champ-${status}__border`);
+		cur.classList.add(`champ-hover-${status}__border`);
 	} else if (cur.matches('.banpick__body-middle__champ img')) {
-		cur.parentElement.classList.add(`champ-${status}__border`);
+		cur.parentElement.classList.add(`champ-hover-${status}__border`);
 	} else if (cur.matches('.banpick__body-middle__champ')) {
-		cur.firstChild.classList.add(`champ-${status}__border`);
+		cur.firstChild.classList.add(`champ-hover-${status}__border`);
 	}
 }
 
@@ -75,11 +75,11 @@ function handleMouseoutChamp(event) {
 		status = 'selected';
 	}
 	if (cur.matches('.banpick__body-middle__champ div')) {
-		cur.classList.remove(`champ-${status}__border`);
+		cur.classList.remove(`champ-hover-${status}__border`);
 	} else if (cur.matches('.banpick__body-middle__champ img')) {
-		cur.parentElement.classList.remove(`champ-${status}__border`);
+		cur.parentElement.classList.remove(`champ-hover-${status}__border`);
 	} else if (cur.matches('.banpick__body-middle__champ')) {
-		cur.firstChild.classList.remove(`champ-${status}__border`);
+		cur.firstChild.classList.remove(`champ-hover-${status}__border`);
 	}
 }
 // eventListener

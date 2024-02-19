@@ -21,6 +21,8 @@ function startBanpick() {
 	countDown(30);
 
 	turnCounter++;
+
+	banningChampVisual();
 }
 
 function banChamps() {
@@ -28,8 +30,16 @@ function banChamps() {
 	targetImg.src = clickedElement.firstChild.firstChild.src;
 	turnCounter++;
 	bannedChampArray.push(clickedElement.firstChild.firstChild.alt);
-
+	clickedElement.firstChild.classList.remove('champ-banned__border', 'champ-hover-banned__border');
 	clickedElement = null;
+	targetImg.parentElement.style.borderColor = 'gray';
+	banningChampVisual();
 }
 
+function banningChampVisual() {
+	toBanChampArray[turnCounter].src =
+		'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-fill-red.png';
+	toBanChampArray[turnCounter].parentElement.style.opacity = 0.7;
+	toBanChampArray[turnCounter].parentElement.style.borderColor = '#c5223d';
+}
 readyBtn.addEventListener('click', handleClickReadyBtn);
