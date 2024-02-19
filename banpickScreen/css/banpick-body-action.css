@@ -44,3 +44,11 @@
 .champ-block-pointer {
 	pointer-events: none;
 }
+
+.opacity-low {
+	opacity: 0.3;
+}
+
+.opacity-high {
+	opacity: 1;
+}

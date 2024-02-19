@@ -69,30 +69,18 @@
 	display: flex;
 }
 
-@keyframes barDecrease {
-	from {
-		transform: scaleX(1);
-	}
-	to {
-		transform: scaleX(0);
-	}
+.banpick__header-middle__bar-box {
+	filter: blur(0.3px);
+	margin: 10px;
+	width: 20vw;
+	height: 5px;
+	display: flex;
+	position: relative;
+	background-color: rgba(128, 128, 128, 0.5);
 }
 .banpick__header-middle__left-bar,
 .banpick__header-middle__right-bar {
-	margin: 10px;
-	width: 20vw;
-	height: 4px;
-	filter: blur(0.5px);
-}
-
-.bar-decrease-30 {
-	animation: barDecrease 30s linear;
-}
-.banpick__header-middle__left-bar {
-	background: linear-gradient(to left, red 0%, white 100%);
-	transform-origin: right center;
-}
-.banpick__header-middle__right-bar {
-	background: linear-gradient(to right, red 0%, white 100%);
-	transform-origin: left center;
+	height: 100%;
+	width: 100%;
+	position: absolute;
 }

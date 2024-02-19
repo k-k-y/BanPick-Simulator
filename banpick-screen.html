@@ -4,8 +4,8 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>LOL Ban Pick Simulate $ Predict</title>
-		<link rel="stylesheet" href="css/styles.css" />
-		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="banpickScreen/css/styles.css" />
+		<link rel="stylesheet" href="banpickScreen/css/reset.css" />
 	</head>
 	<body>
 		<div class="banpick__header">
@@ -43,14 +43,19 @@
 			</div>
 			<div class="banpick__header-middle">
 				<div class="banpick__header-middle__top">
-					<span>챔피언을 금지할 차례입니다!</span>
+					<span></span>
 				</div>
 				<div class="banpick__header-middle__bottom">
-					<div class="banpick__header-middle__left-bar"></div>
-					<div class="banpick__header-middle__num-count">
-						<span>30</span>
+					<div class="banpick__header-middle__bar-box">
+						<div class="banpick__header-middle__left-bar"></div>
 					</div>
-					<div class="banpick__header-middle__right-bar"></div>
+
+					<div class="banpick__header-middle__num-count">
+						<span>0</span>
+					</div>
+					<div class="banpick__header-middle__bar-box">
+						<div class="banpick__header-middle__right-bar"></div>
+					</div>
 				</div>
 			</div>
 			<div class="banpick__header-right">
@@ -221,7 +226,7 @@
 							alt="banpick__chat-img"
 						/>
 					</div>
-					<input id="banpick-input" type="text" placeholder="chat Here" />
+					<input id="banpick-input" type="text" placeholder="클릭해서 채팅 시작하기" />
 				</div>
 			</div>
 			<button id="ready-btn" class="banpick__footers__pick-btn banpick__footers__pick-btn__bg-default">
@@ -230,6 +235,14 @@
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
-		<script src="banpickScreen.js"></script>
+		<script src="banpickScreen/js/champNameArrays.js"></script>
+		<script src="banpickScreen/js/requestChampName.js"></script>
+		<script src="banpickScreen/js/champClickEvent.js"></script>
+		<script src="banpickScreen/js/createImages.js"></script>
+		<script src="banpickScreen/js/roleButtonEvent.js"></script>
+		<script src="banpickScreen/js/chatting.js"></script>
+		<script src="banpickScreen/js/search.js"></script>
+		<script src="banpickScreen/js/countdown.js"></script>
+		<script src="banpickScreen/js/banpickSimulation.js"></script>
 	</body>
 </html>
