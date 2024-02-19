@@ -3,6 +3,7 @@
 }
 .banpick__footers__pick-btn__bg-ban:hover {
 	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/action-button/button-ban-hover.png');
+	color: #c5223d;
 }
 .banpick__footers__pick-btn__bg-default:active {
 	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/action-button/button-lockin-click.png');

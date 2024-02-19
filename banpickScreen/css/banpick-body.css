@@ -52,7 +52,7 @@
 }
 
 .banpick__body-right .banpick__body__champ-info {
-	border-image: linear-gradient(to right, transparent, red 100%);
+	border-image: linear-gradient(to right, transparent, #c5223d 100%);
 	border-image-slice: 1;
 }
 
@@ -124,7 +124,7 @@
 }
 
 .banpick__champ-text {
-	width: 40%;
+	width: 50%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -138,12 +138,13 @@
 }
 
 .banpick__champ-text .banpick__text-line {
-	font-size: 14px;
+	font-size: 16px;
+	font-weight: 600;
 	margin-bottom: 5px;
 }
 
 .banpick__champ-text .banpick__text-champion {
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 600;
 }
 
@@ -234,6 +235,7 @@
 	font-size: 14px;
 	color: rgba(128, 128, 128, 1);
 }
+
 .banpick__body-middle__champ-img-box {
 	display: flex;
 	width: 60px;

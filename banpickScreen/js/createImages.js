@@ -1,5 +1,7 @@
 // add all champion's image
 
+let bannedChampArray = [];
+
 function addChampImage(imgURL, name, count) {
 	const champDiv = document.createElement('button');
 	champDiv.classList.add('banpick__body-middle__champ');
@@ -32,11 +34,18 @@ function addChampImage(imgURL, name, count) {
 	champName.innerText = name;
 	champDiv.appendChild(champName);
 
+	// create selected champion
 	if (clickedElement !== null && clickedElement.firstChild.firstChild.alt === name) {
 		champDiv.classList.add('champ-block-pointer');
 		imgBox.classList.add('champ-selected__border', 'champ-block-pointer');
 		img.classList.add('champ-selected', 'champ-block-pointer');
 		clickedElement = champDiv;
+	}
+
+	if (bannedChampArray.includes(name)) {
+		champDiv.classList.add('champ-block-pointer');
+		imgBox.classList.add('champ-block-pointer');
+		img.classList.add('champ-selected', 'champ-block-pointer');
 	}
 }
 

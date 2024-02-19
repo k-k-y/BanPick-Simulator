@@ -8,13 +8,14 @@
 }
 
 .banpick__header-middle__left-bar {
-	background: linear-gradient(to left, red 0%, white 100%);
+	background: linear-gradient(to left, rgb(164, 1, 1) 0%, rgb(235, 189, 189) 100%);
 	transform-origin: right center;
 }
 .banpick__header-middle__right-bar {
-	background: linear-gradient(to right, red 0%, white 100%);
+	background: linear-gradient(to right, rgb(164, 1, 1) 0%, rgb(235, 189, 189) 100%);
 	transform-origin: left center;
 }
 .bar-decrease-30 {
-	animation: barDecrease 30s linear;
+	animation: barDecrease 30s linear forwards;
+	animation-delay: 1s;
 }

@@ -30,10 +30,6 @@
 	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-utility-hover.png');
 }
 
-.banpick__body-middle__champ-img-box:hover {
-	border: 2px solid #ccbe91;
-}
-
 .champ-selected {
 	filter: grayscale(100%);
 }
@@ -41,6 +37,23 @@
 .champ-selected__border {
 	border: 2px solid #ccbe91;
 }
+
+.champ-banned__border {
+	border: 2px solid #c5223d;
+}
+
 .champ-block-pointer {
 	pointer-events: none;
+}
+
+.banpick__red-box {
+	width: 10px;
+	height: 100%;
+	background-color: #c5223d;
+}
+
+.banpick__blue-box {
+	width: 10px;
+	height: 100%;
+	background-color: #19c5e1;
 }
