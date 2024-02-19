@@ -28,6 +28,10 @@ function addChampImage(imgURL, name, count) {
 		champRow.appendChild(champDiv);
 	}
 
+	const champName = document.createElement('span');
+	champName.innerText = name;
+	champDiv.appendChild(champName);
+
 	if (clickedElement !== null && clickedElement.firstChild.firstChild.alt === name) {
 		champDiv.classList.add('champ-block-pointer');
 		imgBox.classList.add('champ-selected__border', 'champ-block-pointer');

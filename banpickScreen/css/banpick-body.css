@@ -41,7 +41,7 @@
 	align-items: normal;
 	width: 100%;
 	height: 20%;
-	border-image: linear-gradient(to left, transparent 0%, goldenrod 100%);
+	border-image: linear-gradient(to left, transparent 0%, #19c5e1 100%);
 	border-image-slice: 1;
 	border-top: 2px solid;
 	align-items: center;
@@ -61,45 +61,66 @@
 	height: 80%;
 	border-radius: 50%;
 	margin: 0px 20px;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
 	overflow: hidden;
-	background-color: #162022;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	position: relative;
+	background-size: 40px 40px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #162022;
 }
 
-/*첫 번째 밴픽 이미지 예시*/
-.banpick__body-left .banpick__body__champ-info:first-of-type .banpick__champ-img {
-	background-image: url('https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/Smolder.png');
+.banpick__body-left .banpick__body__champ-info:first-child .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-top-blue.png');
+}
+.banpick__body-left .banpick__body__champ-info:nth-child(2) .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-jungle-blue.png');
+}
+.banpick__body-left .banpick__body__champ-info:nth-child(3) .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-middle-blue.png');
+}
+.banpick__body-left .banpick__body__champ-info:nth-child(4) .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-bottom-blue.png');
+}
+.banpick__body-left .banpick__body__champ-info:nth-child(5) .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-utility-blue.png');
+}
+
+.banpick__body-right .banpick__body__champ-info:first-child .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-top-red.png');
+}
+.banpick__body-right .banpick__body__champ-info:nth-child(2) .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-jungle-red.png');
+}
+.banpick__body-right .banpick__body__champ-info:nth-child(3) .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-middle-red.png');
+}
+.banpick__body-right .banpick__body__champ-info:nth-child(4) .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-bottom-red.png');
+}
+.banpick__body-right .banpick__body__champ-info:nth-child(5) .banpick__champ-img {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-utility-red.png');
 }
 
 .banpick__ring-img {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-	width: 105%;
-	height: 105%;
+	width: 102%;
+	height: 102%;
 	position: absolute;
 }
 
 .banpick__body-left .banpick__ring-img {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-m.png');
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-ring-bright-blue.png');
+	opacity: 0.8;
 }
 
 .banpick__body-right .banpick__ring-img {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-m-red.png');
-}
-
-/*첫 번째 밴픽 링 돌아가는거 예시*/
-.banpick__body-left .banpick__body__champ-info:first-of-type .banpick__ring-img {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-spinner-gold.png');
-	width: 125%;
-	height: 125%;
-	animation: rotate_img 1s linear infinite;
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-ring-bright-red.png');
+	opacity: 0.8;
 }
 
 .banpick__champ-text {
@@ -201,15 +222,22 @@
 
 .banpick__body-middle__champ {
 	display: flex;
-	width: 80px;
-	height: 80px;
-	margin: 12px 12px;
+	flex-direction: column;
+	width: 105px;
+	height: 105px;
+	justify-content: center;
+	align-items: center;
 }
 
+.banpick__body-middle__champ span {
+	margin-top: 5px;
+	font-size: 14px;
+	color: rgba(128, 128, 128, 1);
+}
 .banpick__body-middle__champ-img-box {
 	display: flex;
-	width: 100%;
-	height: 100%;
+	width: 60px;
+	height: 60px;
 	border: 2px double #5b5a55;
 }
 
@@ -217,6 +245,7 @@
 	width: 100%;
 	height: 100%;
 }
+
 .banpick__body__champ-info video {
 	position: absolute;
 	width: 100%;
