@@ -80,11 +80,11 @@ let sortingBy = 0; // 0: default, 1: top ... 5: support
 // handle event functions of roleOpButtons.
 
 function handleMouseoverBtn(num, name) {
-	if (sortingBy === 0) btnArray[num].classList.add(`role-op__${name}-hover`);
+	if (sortingBy !== num + 1) btnArray[num].classList.add(`role-op__${name}-hover`);
 }
 
 function handleMouseoutBtn(num, name) {
-	if (sortingBy === 0) btnArray[num].classList.remove(`role-op__${name}-hover`);
+	if (sortingBy !== num + 1) btnArray[num].classList.remove(`role-op__${name}-hover`);
 }
 
 // change button image & sorting champion image by position
@@ -92,18 +92,18 @@ function handleMouseoutBtn(num, name) {
 function handleClickBtn(num, name, champArray) {
 	if (sortingBy === num + 1) {
 		// click already selected -> set default
-		btnArray[num].classList.remove(`role-op__${name}-selected`);
+		btnArray[num].classList.remove(`role-op__${name}-hover`);
 		sortingBy = 0;
 		deleteAllChampImage();
 		setChampImageByArray(allChampNames);
 	} else {
 		// click not selected -> set selected to disabled, clicked to selected
 		for (let i = 0; i < 5; i++) {
-			if (btnArray[i].classList.contains(`role-op__${btnName[i]}-selected`)) {
+			if (btnArray[i].classList.contains(`role-op__${btnName[i]}-hover`)) {
 				btnArray[i].classList = `role-op__${btnName[i]}-disabled`;
 			}
 		}
-		btnArray[num].classList.add(`role-op__${name}-selected`);
+		btnArray[num].classList.add(`role-op__${name}-hover`);
 		sortingBy = num + 1;
 		deleteAllChampImage();
 		setChampImageByArray(champArray);
@@ -244,7 +244,7 @@ const inputBox = document.querySelector('#banpick-input');
 let composing = false;
 
 function handlePressEnter(event) {
-	// prevent to enter twice (because of Korean language)
+	// prevent to enter twice (Korean language)
 	if (event.isComposing) {
 		return;
 	}

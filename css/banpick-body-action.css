@@ -30,28 +30,13 @@
 	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-utility-hover.png');
 }
 
-.role-op__top-selected {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-top.png');
-}
-.role-op__jungle-selected {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-jungle.png');
-}
-.role-op__mid-selected {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-middle.png');
-}
-.role-op__adc-selected {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-bottom.png');
-}
-.role-op__support-selected {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-clash/global/default/assets/images/position-selector/positions/icon-position-utility.png');
-}
-
 .banpick__body-middle__champ-img-box:hover {
 	border: 2px solid #ccbe91;
 }
 
 .champ-selected {
 	filter: grayscale(100%);
+	transition: all 0.2s;
 }
 
 .champ-selected__border {

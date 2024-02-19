@@ -171,7 +171,7 @@
 	height: 100%;
 	background-color: transparent;
 	border: none;
-	color: #5b5a55;
+	color: rgba(255, 255, 255, 0.7);
 	outline: none;
 }
 
