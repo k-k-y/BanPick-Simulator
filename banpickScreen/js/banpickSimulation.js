@@ -16,6 +16,10 @@ const rightRedBox = document.querySelectorAll('#red-box');
 const leftActionText = document.querySelectorAll('.banpick__body-left .banpick__text-action');
 const rightActionText = document.querySelectorAll('.banpick__body-right .banpick__text-action');
 
+// pick order
+const pickOrder = [0, 5, 6, 1, 2, 7, 8, 3, 4, 9];
+const champImg = document.querySelectorAll('.banpick__body__champ-info .banpick__champ-img');
+
 function handleClickReadyBtn() {
 	// turnCounter === -1 : before start stage
 	// turnCounter === 0 ~ 9 : ban stage
@@ -36,9 +40,13 @@ function handleClickReadyBtn() {
 		showAnimation();
 		banChamps();
 		startPick();
-	} else if (turnCounter >= 10 && turnCounter <= 20 && clickedElement !== null) {
+	} else if (turnCounter >= 10 && turnCounter <= 18 && clickedElement !== null) {
 		showAnimation();
 		pickChamps();
+	} else if (turnCounter === 19 && clickedElement != null) {
+		showAnimation();
+		pickChamps();
+		finishPick();
 	}
 }
 
@@ -57,12 +65,13 @@ function startBan() {
 
 function banChamps() {
 	const targetImg = toBanChampArray[turnCounter];
+
 	targetImg.src = clickedElement.firstChild.firstChild.src;
 	bannedChampArray.push(clickedElement.firstChild.firstChild.alt);
 	clickedElement.firstChild.classList.remove('champ-banned__border', 'champ-hover-banned__border');
-	clickedElement = null;
 	targetImg.parentElement.style.borderColor = 'gray';
 
+	clickedElement = null;
 	turnCounter++;
 	countDown(15);
 }
@@ -83,10 +92,22 @@ function startPick() {
 
 	rightBar.classList.add('banpick__header-middle__left-bar-blue');
 	readyBtn.classList.remove('banpick__footers__pick-btn__bg-ban');
+	stopCountDown(15);
+	countDown(30);
 }
 
 function pickChamps() {
+	const index = turnCounter - 10;
+	const target = champImg[pickOrder[index]];
+	const img = clickedElement.firstChild.firstChild;
+
+	target.style.backgroundImage = `url(${img.src})`;
+	bannedChampArray.push(img.alt);
+	target.style.backgroundSize = 'cover';
+	clickedElement.firstChild.classList.remove('champ-selected__border', 'champ-hover-selected__border');
+	clickedElement = null;
 	turnCounter++;
+	countDown(30);
 }
 
 function showAnimation() {
@@ -174,6 +195,11 @@ function createSpan(target) {
 
 function removeSpan(target) {
 	target.innerText = '';
+}
+
+function finishPick() {
+	stopCountDown(30);
+	isElementDisabled = true;
 }
 
 readyBtn.addEventListener('click', handleClickReadyBtn);
