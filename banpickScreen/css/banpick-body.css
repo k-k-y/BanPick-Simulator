@@ -224,8 +224,8 @@
 .banpick__body-middle__champ {
 	display: flex;
 	flex-direction: column;
-	width: 105px;
-	height: 105px;
+	width: 106px;
+	height: 106px;
 	justify-content: center;
 	align-items: center;
 }
@@ -238,8 +238,8 @@
 
 .banpick__body-middle__champ-img-box {
 	display: flex;
-	width: 60px;
-	height: 60px;
+	width: 65px;
+	height: 65px;
 	border: 2px double #5b5a55;
 }
 

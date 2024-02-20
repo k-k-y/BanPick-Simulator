@@ -61,7 +61,8 @@
 }
 
 .banpick__chat__text {
-	margin: 4px 12px;
+	margin: 0px 12px;
+	margin-bottom: 8px;
 	font-size: 15px;
 }
 .banpick__chat__text span:first-child {
