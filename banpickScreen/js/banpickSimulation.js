@@ -4,6 +4,9 @@ const readyBtn = document.querySelector('#ready-btn');
 const toBanChampArray = document.querySelectorAll('.banpick__header .banpick__champ-img img');
 
 // 10 side champion elements
+const leftVideo = document.querySelectorAll('.banpick__body-left .banpick__body__champ-info video');
+const rightVideo = document.querySelectorAll('.banpick__body-right .banpick__body__champ-info video');
+
 const leftRingImg = document.querySelectorAll('.banpick__ring-img-rotate-blue');
 const rightRingImg = document.querySelectorAll('.banpick__ring-img-rotate-red');
 
@@ -131,9 +134,11 @@ function createAnimation(index, side) {
 	if (side === 'left') {
 		sideBlueBox[index].classList.add('banpick__blue-box');
 		leftRingImg[index].classList.remove('hide');
+		leftVideo[index].classList.remove('hide');
 	} else if (side === 'right') {
 		sideRedBox[index].classList.add('banpick__red-box');
 		rightRingImg[index].classList.remove('hide');
+		rightVideo[index].classList.remove('hide');
 	}
 }
 
@@ -141,9 +146,11 @@ function removeAnimation(index, side) {
 	if (side === 'left') {
 		sideBlueBox[index].classList.remove('banpick__blue-box');
 		leftRingImg[index].classList.add('hide');
+		leftVideo[index].classList.add('hide');
 	} else if (side === 'right') {
 		sideRedBox[index].classList.remove('banpick__red-box');
 		rightRingImg[index].classList.add('hide');
+		rightVideo[index].classList.add('hide');
 	}
 }
 
