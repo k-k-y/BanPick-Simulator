@@ -65,3 +65,10 @@
 	height: 100%;
 	background-color: #19c5e1;
 }
+
+.banpick__ring-img-rotate {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-spinner-gold.png');
+	width: 125%;
+	height: 125%;
+	animation: rotate_img 1s linear infinite;
+}

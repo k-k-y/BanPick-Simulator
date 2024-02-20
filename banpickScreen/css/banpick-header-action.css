@@ -15,6 +15,12 @@
 	background: linear-gradient(to right, rgb(164, 1, 1) 0%, rgb(235, 189, 189) 100%);
 	transform-origin: left center;
 }
+
+.banpick__header-middle__left-bar-blue {
+	background: linear-gradient(to left, #015a81 0%, #9bd5de 100%);
+	transform-origin: right center;
+}
+
 .bar-decrease-30 {
 	animation: barDecrease 30s linear forwards;
 	animation-delay: 1s;
