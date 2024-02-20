@@ -6,11 +6,13 @@ const sideBlueBox = document.querySelectorAll('#blue-box');
 const sideRedBox = document.querySelectorAll('#red-box');
 
 function handleClickReadyBtn() {
-	console.log(turnCounter);
-
 	if (turnCounter === -1) {
 		startBanpick();
-	} else if (turnCounter >= 0 && turnCounter <= 9 && clickedElement !== null) {
+	} else if (turnCounter >= 0 && turnCounter <= 8 && clickedElement !== null) {
+		showBanningThings();
+		banChamps();
+	} else if (turnCounter === 9) {
+		showSideBox();
 		banChamps();
 	}
 }
@@ -27,7 +29,6 @@ function startBanpick() {
 }
 
 function banChamps() {
-	showBanningThings();
 	const targetImg = toBanChampArray[turnCounter];
 	targetImg.src = clickedElement.firstChild.firstChild.src;
 	bannedChampArray.push(clickedElement.firstChild.firstChild.alt);
@@ -41,10 +42,6 @@ function banChamps() {
 
 function showBanningThings() {
 	showSideBox();
-
-	if (turnCounter >= 9) {
-		return;
-	}
 
 	toBanChampArray[turnCounter + 1].src =
 		'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-fill-red.png';
