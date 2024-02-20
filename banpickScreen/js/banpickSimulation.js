@@ -13,23 +13,22 @@ const sideRedBox = document.querySelectorAll('#red-box');
 function handleClickReadyBtn() {
 	// turnCounter === -1 : before start stage
 	// turnCounter === 0 ~ 9 : ban stage
-	// turnCounter === 10 ~ 15 : pick stage
-	// turnCounter === 16 : finish stage
+	// turnCounter === 10 ~ 19 : pick stage
+	// turnCounter === 20 : finish stage
 
 	console.log(turnCounter);
+
+	showAnimation();
 
 	if (turnCounter === -1) {
 		startBan();
 	} else if (turnCounter >= 0 && turnCounter <= 8 && clickedElement !== null) {
-		showAnimation();
 		showBanImage();
 		banChamps();
 	} else if (turnCounter === 9) {
-		showAnimation();
 		banChamps();
 		startPick();
 	} else if (turnCounter >= 10 && turnCounter <= 20) {
-		showAnimation();
 		pickChamps();
 	}
 }
@@ -83,79 +82,68 @@ function pickChamps() {
 
 function showAnimation() {
 	if (turnCounter === -1) {
-		sideBlueBox[turnCounter + 1].classList.add('banpick__blue-box');
+		createAnimation(turnCounter + 1, 'left');
 	} else if (turnCounter >= 0 && turnCounter <= 3) {
-		sideBlueBox[turnCounter + 1].classList.add('banpick__blue-box');
-		sideBlueBox[turnCounter].classList.remove('banpick__blue-box');
+		createAnimation(turnCounter + 1, 'left');
+		removeAnimation(turnCounter, 'left');
 	} else if (turnCounter === 4) {
-		sideRedBox[turnCounter - 4].classList.add('banpick__red-box');
-		sideBlueBox[turnCounter].classList.remove('banpick__blue-box');
+		removeAnimation(turnCounter, 'left');
+		createAnimation(turnCounter - 4, 'right');
 	} else if (turnCounter >= 5 && turnCounter <= 8) {
-		sideRedBox[turnCounter - 4].classList.add('banpick__red-box');
-		sideRedBox[turnCounter - 5].classList.remove('banpick__red-box');
+		createAnimation(turnCounter - 4, 'right');
+		removeAnimation(turnCounter - 5, 'right');
 	} else if (turnCounter === 9) {
-		sideRedBox[turnCounter - 5].classList.remove('banpick__red-box');
-		sideBlueBox[0].classList.add('banpick__blue-box');
-
-		leftRingImg[0].classList.remove('hide');
+		removeAnimation(turnCounter - 5, 'right');
+		createAnimation(0, 'left');
 	} else if (turnCounter === 10) {
-		sideBlueBox[0].classList.remove('banpick__blue-box');
-		sideRedBox[0].classList.add('banpick__red-box');
-
-		leftRingImg[0].classList.add('hide');
-		rightRingImg[0].classList.remove('hide');
+		removeAnimation(0, 'left');
+		createAnimation(0, 'right');
 	} else if (turnCounter === 11) {
-		sideRedBox[0].classList.remove('banpick__red-box');
-		sideRedBox[1].classList.add('banpick__red-box');
-
-		rightRingImg[0].classList.add('hide');
-		rightRingImg[1].classList.remove('hide');
+		removeAnimation(0, 'right');
+		createAnimation(1, 'right');
 	} else if (turnCounter === 12) {
-		sideRedBox[1].classList.remove('banpick__red-box');
-		sideBlueBox[1].classList.add('banpick__blue-box');
-
-		rightRingImg[1].classList.add('hide');
-		leftRingImg[1].classList.remove('hide');
+		removeAnimation(1, 'right');
+		createAnimation(1, 'left');
 	} else if (turnCounter === 13) {
-		sideBlueBox[1].classList.remove('banpick__blue-box');
-		sideBlueBox[2].classList.add('banpick__blue-box');
-
-		leftRingImg[1].classList.add('hide');
-		leftRingImg[2].classList.remove('hide');
+		removeAnimation(1, 'left');
+		createAnimation(2, 'left');
 	} else if (turnCounter === 14) {
-		sideBlueBox[2].classList.remove('banpick__blue-box');
-		sideRedBox[2].classList.add('banpick__red-box');
-
-		leftRingImg[2].classList.add('hide');
-		rightRingImg[2].classList.remove('hide');
+		removeAnimation(2, 'left');
+		createAnimation(2, 'right');
 	} else if (turnCounter === 15) {
-		sideRedBox[2].classList.remove('banpick__red-box');
-		sideRedBox[3].classList.add('banpick__red-box');
-
-		rightRingImg[2].classList.add('hide');
-		rightRingImg[3].classList.remove('hide');
+		removeAnimation(2, 'right');
+		createAnimation(3, 'right');
 	} else if (turnCounter === 16) {
-		sideRedBox[3].classList.remove('banpick__red-box');
-		sideBlueBox[3].classList.add('banpick__blue-box');
-
-		rightRingImg[3].classList.add('hide');
-		leftRingImg[3].classList.remove('hide');
+		removeAnimation(3, 'right');
+		createAnimation(3, 'left');
 	} else if (turnCounter === 17) {
-		sideBlueBox[3].classList.remove('banpick__blue-box');
-		sideBlueBox[4].classList.add('banpick__blue-box');
-
-		leftRingImg[3].classList.add('hide');
-		leftRingImg[4].classList.remove('hide');
+		removeAnimation(3, 'left');
+		createAnimation(4, 'left');
 	} else if (turnCounter === 18) {
-		sideBlueBox[4].classList.remove('banpick__blue-box');
-		sideRedBox[4].classList.add('banpick__red-box');
-
-		leftRingImg[4].classList.add('hide');
-		rightRingImg[4].classList.remove('hide');
+		removeAnimation(4, 'left');
+		createAnimation(4, 'right');
 	} else if (turnCounter === 19) {
-		sideRedBox[4].classList.remove('banpick__red-box');
+		removeAnimation(4, 'right');
+	}
+}
 
-		rightRingImg[4].classList.add('hide');
+function createAnimation(index, side) {
+	if (side === 'left') {
+		sideBlueBox[index].classList.add('banpick__blue-box');
+		leftRingImg[index].classList.remove('hide');
+	} else if (side === 'right') {
+		sideRedBox[index].classList.add('banpick__red-box');
+		rightRingImg[index].classList.remove('hide');
+	}
+}
+
+function removeAnimation(index, side) {
+	if (side === 'left') {
+		sideBlueBox[index].classList.remove('banpick__blue-box');
+		leftRingImg[index].classList.add('hide');
+	} else if (side === 'right') {
+		sideRedBox[index].classList.remove('banpick__red-box');
+		rightRingImg[index].classList.add('hide');
 	}
 }
 
