@@ -21,15 +21,15 @@ function handleClickReadyBtn() {
 	if (turnCounter === -1) {
 		startBan();
 	} else if (turnCounter >= 0 && turnCounter <= 8 && clickedElement !== null) {
-		showSideBox();
+		showAnimation();
 		showBanImage();
 		banChamps();
 	} else if (turnCounter === 9) {
-		showPickAnimation();
+		showAnimation();
 		banChamps();
 		startPick();
-	} else if (turnCounter >= 10 && turnCounter <= 15) {
-		showPickAnimation();
+	} else if (turnCounter >= 10 && turnCounter <= 20) {
+		showAnimation();
 		pickChamps();
 	}
 }
@@ -81,7 +81,7 @@ function pickChamps() {
 	turnCounter++;
 }
 
-function showSideBox() {
+function showAnimation() {
 	if (turnCounter === -1) {
 		sideBlueBox[turnCounter + 1].classList.add('banpick__blue-box');
 	} else if (turnCounter >= 0 && turnCounter <= 3) {
@@ -96,76 +96,67 @@ function showSideBox() {
 	} else if (turnCounter === 9) {
 		sideRedBox[turnCounter - 5].classList.remove('banpick__red-box');
 		sideBlueBox[0].classList.add('banpick__blue-box');
+
+		leftRingImg[0].classList.remove('hide');
 	} else if (turnCounter === 10) {
 		sideBlueBox[0].classList.remove('banpick__blue-box');
 		sideRedBox[0].classList.add('banpick__red-box');
-		sideRedBox[1].classList.add('banpick__red-box');
+
+		leftRingImg[0].classList.add('hide');
+		rightRingImg[0].classList.remove('hide');
 	} else if (turnCounter === 11) {
 		sideRedBox[0].classList.remove('banpick__red-box');
+		sideRedBox[1].classList.add('banpick__red-box');
+
+		rightRingImg[0].classList.add('hide');
+		rightRingImg[1].classList.remove('hide');
+	} else if (turnCounter === 12) {
 		sideRedBox[1].classList.remove('banpick__red-box');
 		sideBlueBox[1].classList.add('banpick__blue-box');
-		sideBlueBox[2].classList.add('banpick__blue-box');
-	} else if (turnCounter === 12) {
+
+		rightRingImg[1].classList.add('hide');
+		leftRingImg[1].classList.remove('hide');
+	} else if (turnCounter === 13) {
 		sideBlueBox[1].classList.remove('banpick__blue-box');
+		sideBlueBox[2].classList.add('banpick__blue-box');
+
+		leftRingImg[1].classList.add('hide');
+		leftRingImg[2].classList.remove('hide');
+	} else if (turnCounter === 14) {
 		sideBlueBox[2].classList.remove('banpick__blue-box');
 		sideRedBox[2].classList.add('banpick__red-box');
-		sideRedBox[3].classList.add('banpick__red-box');
-	} else if (turnCounter === 13) {
+
+		leftRingImg[2].classList.add('hide');
+		rightRingImg[2].classList.remove('hide');
+	} else if (turnCounter === 15) {
 		sideRedBox[2].classList.remove('banpick__red-box');
+		sideRedBox[3].classList.add('banpick__red-box');
+
+		rightRingImg[2].classList.add('hide');
+		rightRingImg[3].classList.remove('hide');
+	} else if (turnCounter === 16) {
 		sideRedBox[3].classList.remove('banpick__red-box');
 		sideBlueBox[3].classList.add('banpick__blue-box');
-		sideBlueBox[4].classList.add('banpick__blue-box');
-	} else if (turnCounter === 14) {
+
+		rightRingImg[3].classList.add('hide');
+		leftRingImg[3].classList.remove('hide');
+	} else if (turnCounter === 17) {
 		sideBlueBox[3].classList.remove('banpick__blue-box');
+		sideBlueBox[4].classList.add('banpick__blue-box');
+
+		leftRingImg[3].classList.add('hide');
+		leftRingImg[4].classList.remove('hide');
+	} else if (turnCounter === 18) {
 		sideBlueBox[4].classList.remove('banpick__blue-box');
 		sideRedBox[4].classList.add('banpick__red-box');
-	} else if (turnCounter === 15) {
-		sideRedBox[4].classList.remove('banpick__red-box');
-	}
-}
 
-function showRotateImg() {
-	switch (turnCounter) {
-		case 9:
-			leftRingImg[0].classList.remove('hide');
-			break;
-		case 10:
-			leftRingImg[0].classList.add('hide');
-			rightRingImg[0].classList.remove('hide');
-			rightRingImg[1].classList.remove('hide');
-			break;
-		case 11:
-			rightRingImg[0].classList.add('hide');
-			rightRingImg[1].classList.add('hide');
-			leftRingImg[1].classList.remove('hide');
-			leftRingImg[2].classList.remove('hide');
-			break;
-		case 12:
-			leftRingImg[1].classList.add('hide');
-			leftRingImg[2].classList.add('hide');
-			rightRingImg[2].classList.remove('hide');
-			rightRingImg[3].classList.remove('hide');
-			break;
-		case 13:
-			rightRingImg[2].classList.add('hide');
-			rightRingImg[3].classList.add('hide');
-			leftRingImg[3].classList.remove('hide');
-			leftRingImg[4].classList.remove('hide');
-			break;
-		case 14:
-			leftRingImg[3].classList.add('hide');
-			leftRingImg[4].classList.add('hide');
-			rightRingImg[4].classList.remove('hide');
-			break;
-		case 15:
-			rightRingImg[4].classList.add('hide');
-		default:
-			break;
+		leftRingImg[4].classList.add('hide');
+		rightRingImg[4].classList.remove('hide');
+	} else if (turnCounter === 19) {
+		sideRedBox[4].classList.remove('banpick__red-box');
+
+		rightRingImg[4].classList.add('hide');
 	}
-}
-function showPickAnimation() {
-	showSideBox();
-	showRotateImg();
 }
 
 readyBtn.addEventListener('click', handleClickReadyBtn);
