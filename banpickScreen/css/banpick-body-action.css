@@ -66,9 +66,30 @@
 	background-color: #19c5e1;
 }
 
-.banpick__ring-img-rotate {
-	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-spinner-gold.png');
+.banpick__ring-img-rotate-blue {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-spinner-blue.png');
 	width: 125%;
 	height: 125%;
 	animation: rotate_img 1s linear infinite;
+	position: absolute;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 2;
+}
+
+.banpick__ring-img-rotate-red {
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champ-select/global/default/images/summoner-object/player-object-spinner-red.png');
+	width: 120%;
+	height: 120%;
+	animation: rotate_img 1s linear infinite;
+	position: absolute;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 2;
+}
+
+.hide {
+	display: none;
 }

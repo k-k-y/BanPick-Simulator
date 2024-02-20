@@ -4,8 +4,8 @@ const readyBtn = document.querySelector('#ready-btn');
 const toBanChampArray = document.querySelectorAll('.banpick__header .banpick__champ-img img');
 
 // 10 side champion elements
-const leftRingImg = document.querySelectorAll('.banpick__body-left .banpick__ring-img');
-const rightRingImg = document.querySelectorAll('.banpick__body-right .banpick__ring-img');
+const leftRingImg = document.querySelectorAll('.banpick__ring-img-rotate-blue');
+const rightRingImg = document.querySelectorAll('.banpick__ring-img-rotate-red');
 
 const sideBlueBox = document.querySelectorAll('#blue-box');
 const sideRedBox = document.querySelectorAll('#red-box');
@@ -127,36 +127,38 @@ function showSideBox() {
 function showRotateImg() {
 	switch (turnCounter) {
 		case 9:
-			leftRingImg[0].classList.add('banpick__ring-img-rotate');
+			leftRingImg[0].classList.remove('hide');
 			break;
 		case 10:
-			leftRingImg[0].classList.remove('banpick__ring-img-rotate');
-			rightRingImg[0].classList.add('banpick__ring-img-rotate');
-			rightRingImg[1].classList.add('banpick__ring-img-rotate');
+			leftRingImg[0].classList.add('hide');
+			rightRingImg[0].classList.remove('hide');
+			rightRingImg[1].classList.remove('hide');
 			break;
 		case 11:
-			leftRingImg[1].classList.add('banpick__ring-img-rotate');
-			leftRingImg[2].classList.add('banpick__ring-img-rotate');
+			rightRingImg[0].classList.add('hide');
+			rightRingImg[1].classList.add('hide');
+			leftRingImg[1].classList.remove('hide');
+			leftRingImg[2].classList.remove('hide');
 			break;
 		case 12:
-			leftRingImg[1].classList.remove('banpick__ring-img-rotate');
-			leftRingImg[2].classList.remove('banpick__ring-img-rotate');
-			rightRingImg[2].classList.add('banpick__ring-img-rotate');
-			rightRingImg[3].classList.add('banpick__ring-img-rotate');
+			leftRingImg[1].classList.add('hide');
+			leftRingImg[2].classList.add('hide');
+			rightRingImg[2].classList.remove('hide');
+			rightRingImg[3].classList.remove('hide');
 			break;
 		case 13:
-			rightRingImg[2].classList.remove('banpick__ring-img-rotate');
-			rightRingImg[3].classList.remove('banpick__ring-img-rotate');
-			leftRingImg[3].classList.add('banpick__ring-img-rotate');
-			leftRingImg[4].classList.add('banpick__ring-img-rotate');
+			rightRingImg[2].classList.add('hide');
+			rightRingImg[3].classList.add('hide');
+			leftRingImg[3].classList.remove('hide');
+			leftRingImg[4].classList.remove('hide');
 			break;
 		case 14:
-			leftRingImg[3].classList.remove('banpick__ring-img-rotate');
-			leftRingImg[4].classList.remove('banpick__ring-img-rotate');
-			rightRingImg[4].classList.add('banpick__ring-img-rotate');
+			leftRingImg[3].classList.add('hide');
+			leftRingImg[4].classList.add('hide');
+			rightRingImg[4].classList.remove('hide');
 			break;
 		case 15:
-			rightRingImg[4].classList.remove('banpick__ring-img-rotate');
+			rightRingImg[4].classList.add('hide');
 		default:
 			break;
 	}

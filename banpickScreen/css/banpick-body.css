@@ -111,6 +111,7 @@
 	width: 102%;
 	height: 102%;
 	position: absolute;
+	z-index: 1;
 }
 
 .banpick__body-left .banpick__ring-img {
