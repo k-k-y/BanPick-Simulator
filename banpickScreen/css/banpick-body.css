@@ -125,7 +125,7 @@
 }
 
 .banpick__champ-text {
-	width: 50%;
+	width: 60%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -137,11 +137,16 @@
 .banpick__body-right .banpick__champ-text {
 	align-items: flex-end;
 }
+.banpick__champ-text span {
+	margin: 3px 0px;
+}
 
+.banpick__champ-text .banpick__text-action {
+	font-size: 14px;
+}
 .banpick__champ-text .banpick__text-line {
 	font-size: 16px;
 	font-weight: 600;
-	margin-bottom: 5px;
 }
 
 .banpick__champ-text .banpick__text-champion {

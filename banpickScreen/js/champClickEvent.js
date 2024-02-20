@@ -88,6 +88,7 @@ function handleMouseoutChamp(event) {
 		cur.firstChild.classList.remove(`champ-hover-${status}__border`);
 	}
 }
+
 // eventListener
 
 championsDiv.addEventListener('click', handleClickChamp);

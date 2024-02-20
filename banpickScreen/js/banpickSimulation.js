@@ -10,28 +10,34 @@ const rightVideo = document.querySelectorAll('.banpick__body-right .banpick__bod
 const leftRingImg = document.querySelectorAll('.banpick__ring-img-rotate-blue');
 const rightRingImg = document.querySelectorAll('.banpick__ring-img-rotate-red');
 
-const sideBlueBox = document.querySelectorAll('#blue-box');
-const sideRedBox = document.querySelectorAll('#red-box');
+const leftBlueBox = document.querySelectorAll('#blue-box');
+const rightRedBox = document.querySelectorAll('#red-box');
+
+const leftActionText = document.querySelectorAll('.banpick__body-left .banpick__text-action');
+const rightActionText = document.querySelectorAll('.banpick__body-right .banpick__text-action');
 
 function handleClickReadyBtn() {
 	// turnCounter === -1 : before start stage
 	// turnCounter === 0 ~ 9 : ban stage
-	// turnCounter === 10 ~ 19 : pick stage
+	// turnCounter === 9 : ban stage end, pick stage start
+	// turnCounter === 9 ~ 19 : pick stage
 	// turnCounter === 20 : finish stage
 
 	console.log(turnCounter);
 
-	showAnimation();
-
 	if (turnCounter === -1) {
+		showAnimation();
 		startBan();
 	} else if (turnCounter >= 0 && turnCounter <= 8 && clickedElement !== null) {
+		showAnimation();
 		showBanImage();
 		banChamps();
-	} else if (turnCounter === 9) {
+	} else if (turnCounter === 9 && clickedElement !== null) {
+		showAnimation();
 		banChamps();
 		startPick();
-	} else if (turnCounter >= 10 && turnCounter <= 20) {
+	} else if (turnCounter >= 10 && turnCounter <= 20 && clickedElement !== null) {
+		showAnimation();
 		pickChamps();
 	}
 }
@@ -43,7 +49,7 @@ function startBan() {
 	readyBtn.innerText = '챔피언 선택 금지 (밴)';
 	readyBtn.classList.add('banpick__footers__pick-btn__bg-ban');
 
-	countDown(30);
+	countDown(15);
 	showBanImage();
 	turnCounter++;
 	isElementDisabled = false;
@@ -58,7 +64,7 @@ function banChamps() {
 	targetImg.parentElement.style.borderColor = 'gray';
 
 	turnCounter++;
-	countDown(30);
+	countDown(15);
 }
 
 function showBanImage() {
@@ -132,26 +138,42 @@ function showAnimation() {
 
 function createAnimation(index, side) {
 	if (side === 'left') {
-		sideBlueBox[index].classList.add('banpick__blue-box');
+		leftBlueBox[index].classList.add('banpick__blue-box');
 		leftRingImg[index].classList.remove('hide');
 		leftVideo[index].classList.remove('hide');
+		createText(leftActionText[index]);
 	} else if (side === 'right') {
-		sideRedBox[index].classList.add('banpick__red-box');
+		rightRedBox[index].classList.add('banpick__red-box');
 		rightRingImg[index].classList.remove('hide');
 		rightVideo[index].classList.remove('hide');
+		createText(rightActionText[index]);
 	}
 }
 
 function removeAnimation(index, side) {
 	if (side === 'left') {
-		sideBlueBox[index].classList.remove('banpick__blue-box');
+		leftBlueBox[index].classList.remove('banpick__blue-box');
 		leftRingImg[index].classList.add('hide');
 		leftVideo[index].classList.add('hide');
+		removeText(leftActionText[index]);
 	} else if (side === 'right') {
-		sideRedBox[index].classList.remove('banpick__red-box');
+		rightRedBox[index].classList.remove('banpick__red-box');
 		rightRingImg[index].classList.add('hide');
 		rightVideo[index].classList.add('hide');
+		removeText(rightActionText[index]);
 	}
+}
+
+function createText(target) {
+	if (turnCounter >= -1 && turnCounter <= 8) {
+		target.innerText = '금지 중...';
+	} else if (turnCounter >= 9 && turnCounter <= 18) {
+		target.innerText = '선택 중...';
+	}
+}
+
+function removeText(target) {
+	target.innerText = '';
 }
 
 readyBtn.addEventListener('click', handleClickReadyBtn);

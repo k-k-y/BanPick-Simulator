@@ -6,9 +6,9 @@ const rightBar = document.querySelector('.banpick__header-middle__right-bar');
 let intervalId;
 
 function countDown(sec) {
-	stopCountDown();
-	leftBar.classList.add('bar-decrease-30');
-	rightBar.classList.add('bar-decrease-30');
+	stopCountDown(sec);
+	leftBar.classList.add(`bar-decrease-${sec}`);
+	rightBar.classList.add(`bar-decrease-${sec}`);
 
 	let count = sec;
 
@@ -22,9 +22,9 @@ function countDown(sec) {
 	}, 1000);
 }
 
-function stopCountDown() {
-	leftBar.classList.remove('bar-decrease-30');
-	rightBar.classList.remove('bar-decrease-30');
+function stopCountDown(sec) {
+	leftBar.classList.remove(`bar-decrease-${sec}`);
+	rightBar.classList.remove(`bar-decrease-${sec}`);
 
 	void leftBar.offsetWidth; // trick for reset animation
 	void rightBar.offsetWidth;

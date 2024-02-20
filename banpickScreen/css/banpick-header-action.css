@@ -25,3 +25,8 @@
 	animation: barDecrease 30s linear forwards;
 	animation-delay: 1s;
 }
+
+.bar-decrease-15 {
+	animation: barDecrease 15s linear forwards;
+	animation-delay: 1s;
+}
