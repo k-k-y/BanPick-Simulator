@@ -141,12 +141,12 @@ function createAnimation(index, side) {
 		leftBlueBox[index].classList.add('banpick__blue-box');
 		leftRingImg[index].classList.remove('hide');
 		leftVideo[index].classList.remove('hide');
-		createText(leftActionText[index]);
+		createSpan(leftActionText[index]);
 	} else if (side === 'right') {
 		rightRedBox[index].classList.add('banpick__red-box');
 		rightRingImg[index].classList.remove('hide');
 		rightVideo[index].classList.remove('hide');
-		createText(rightActionText[index]);
+		createSpan(rightActionText[index]);
 	}
 }
 
@@ -155,16 +155,16 @@ function removeAnimation(index, side) {
 		leftBlueBox[index].classList.remove('banpick__blue-box');
 		leftRingImg[index].classList.add('hide');
 		leftVideo[index].classList.add('hide');
-		removeText(leftActionText[index]);
+		removeSpan(leftActionText[index]);
 	} else if (side === 'right') {
 		rightRedBox[index].classList.remove('banpick__red-box');
 		rightRingImg[index].classList.add('hide');
 		rightVideo[index].classList.add('hide');
-		removeText(rightActionText[index]);
+		removeSpan(rightActionText[index]);
 	}
 }
 
-function createText(target) {
+function createSpan(target) {
 	if (turnCounter >= -1 && turnCounter <= 8) {
 		target.innerText = '금지 중...';
 	} else if (turnCounter >= 9 && turnCounter <= 18) {
@@ -172,7 +172,7 @@ function createText(target) {
 	}
 }
 
-function removeText(target) {
+function removeSpan(target) {
 	target.innerText = '';
 }
 
