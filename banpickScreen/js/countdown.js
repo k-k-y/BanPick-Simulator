@@ -1,9 +1,9 @@
 // implement countdown function (Rough version)
 
-let intervalId;
 const countText = document.querySelector('.banpick__header-middle__num-count span');
 const leftBar = document.querySelector('.banpick__header-middle__left-bar');
 const rightBar = document.querySelector('.banpick__header-middle__right-bar');
+let intervalId;
 
 function countDown(sec) {
 	stopCountDown();

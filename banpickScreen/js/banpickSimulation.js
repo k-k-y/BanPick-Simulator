@@ -26,6 +26,7 @@ function startBanpick() {
 	countDown(30);
 	showBanningThings();
 	turnCounter++;
+	isElementDisabled = false;
 }
 
 function banChamps() {

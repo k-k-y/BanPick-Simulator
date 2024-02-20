@@ -32,6 +32,8 @@ function selectChamp(cur) {
 }
 
 function handleClickChamp(event) {
+	if (isElementDisabled) return;
+
 	const cur = event.target;
 
 	if (cur.matches('.banpick__body-middle__champ')) {
@@ -47,6 +49,8 @@ function handleClickChamp(event) {
 }
 
 function handleMouseoverChamp(event) {
+	if (isElementDisabled) return;
+
 	const cur = event.target;
 
 	let status = '';
@@ -66,6 +70,8 @@ function handleMouseoverChamp(event) {
 }
 
 function handleMouseoutChamp(event) {
+	if (isElementDisabled) return;
+
 	const cur = event.target;
 
 	let status = '';
