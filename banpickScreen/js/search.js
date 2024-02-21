@@ -1,3 +1,5 @@
+// implement searching funcition
+
 function searchByInput(event) {
 	deleteAllChampImage();
 	const inputValue = event.target.value;

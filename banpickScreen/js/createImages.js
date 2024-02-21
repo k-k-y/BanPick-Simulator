@@ -50,9 +50,6 @@ function addChampImage(imgURL, name, count) {
 
 // delete image & create image functions
 
-const inputBox = document.querySelector('#banpick-input');
-let composing = false;
-
 function deleteAllChampImage() {
 	const allChampDivs = document.querySelectorAll('.banpick__body-middle__champ');
 	const allChampRows = document.querySelectorAll('.banpick__body-middle__champs-row');
