@@ -1,19 +1,4 @@
-let turnCounter = -1;
-const readyBtn = document.querySelector('#ready-btn');
-
-// 10 ban boxs
-const toBanChampArray = document.querySelectorAll('.banpick__header .banpick__champ-img img');
-
-// pick order
-const pickOrder = [0, 5, 6, 1, 2, 7, 8, 3, 4, 9];
-
-// 10 side champion elements
-const infoVideo = document.querySelectorAll('.banpick__body .banpick__body__champ-info video');
-const infoRingImg = document.querySelectorAll("[class*='banpick__ring-img-rotate']");
-const infoSideBox = document.querySelectorAll("[class*='champ-info__box']");
-const infoTexts = document.querySelectorAll('.banpick__champ-text');
-
-const champImg = document.querySelectorAll('.banpick__body__champ-info .banpick__champ-img');
+// implement whole banpick procedure
 
 function handleClickReadyBtn() {
 	// turnCounter === -1 : before start stage

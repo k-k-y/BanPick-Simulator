@@ -1,7 +1,3 @@
-// about search function
-
-const searcher = document.querySelector('.banpick__body-middle__search-op input');
-
 function searchByInput(event) {
 	deleteAllChampImage();
 	const inputValue = event.target.value;

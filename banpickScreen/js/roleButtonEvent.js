@@ -1,15 +1,3 @@
-// about roleOpButtons
-
-const topBtn = document.querySelector('.role-op__top-disabled');
-const jungleBtn = document.querySelector('.role-op__jungle-disabled');
-const midBtn = document.querySelector('.role-op__mid-disabled');
-const adcBtn = document.querySelector('.role-op__adc-disabled');
-const supportBtn = document.querySelector('.role-op__support-disabled');
-
-const btnArray = [topBtn, jungleBtn, midBtn, adcBtn, supportBtn];
-const btnName = ['top', 'jungle', 'mid', 'adc', 'support'];
-let sortingBy = 0; // 0: default, 1: top ... 5: support
-
 // handle event functions of roleOpButtons.
 
 function handleMouseoverBtn(num, name) {

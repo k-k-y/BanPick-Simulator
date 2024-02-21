@@ -1,7 +1,5 @@
 // implement champion hover, clicked function
 
-let clickedElement = null;
-
 function deleteDisabled() {
 	let status = '';
 	if (turnCounter >= 0 && turnCounter <= 9) {

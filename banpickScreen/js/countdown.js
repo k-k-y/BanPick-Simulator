@@ -1,7 +1,4 @@
-const countText = document.querySelector('.banpick__header-middle__num-count span');
-const leftCountBar = document.querySelector('.banpick__header-middle__left-bar');
-const rightCountBar = document.querySelector('.banpick__header-middle__right-bar');
-let intervalId;
+// implement countDown start, stop
 
 function countDown(sec) {
 	stopCountDown(sec);

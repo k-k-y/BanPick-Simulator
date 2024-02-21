@@ -1,8 +1,5 @@
 // add all champion's image
 
-let bannedChampArray = [];
-let isElementDisabled = true;
-
 function addChampImage(imgURL, name, count) {
 	const champDiv = document.createElement('button');
 	champDiv.classList.add('banpick__body-middle__champ');
