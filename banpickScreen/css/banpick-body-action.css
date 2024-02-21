@@ -54,13 +54,13 @@
 	pointer-events: none;
 }
 
-.banpick__red-box {
+.champ-info__box-red {
 	width: 10px;
 	height: 100%;
 	background-color: #c5223d;
 }
 
-.banpick__blue-box {
+.champ-info__box-blue {
 	width: 10px;
 	height: 100%;
 	background-color: #19c5e1;

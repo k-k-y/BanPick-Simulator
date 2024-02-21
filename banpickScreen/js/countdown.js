@@ -1,14 +1,12 @@
-// implement countdown function (Rough version)
-
 const countText = document.querySelector('.banpick__header-middle__num-count span');
-const leftBar = document.querySelector('.banpick__header-middle__left-bar');
-const rightBar = document.querySelector('.banpick__header-middle__right-bar');
+const leftCountBar = document.querySelector('.banpick__header-middle__left-bar');
+const rightCountBar = document.querySelector('.banpick__header-middle__right-bar');
 let intervalId;
 
 function countDown(sec) {
 	stopCountDown(sec);
-	leftBar.classList.add(`bar-decrease-${sec}`);
-	rightBar.classList.add(`bar-decrease-${sec}`);
+	leftCountBar.classList.add(`bar-decrease-${sec}`);
+	rightCountBar.classList.add(`bar-decrease-${sec}`);
 
 	let count = sec;
 
@@ -23,11 +21,11 @@ function countDown(sec) {
 }
 
 function stopCountDown(sec) {
-	leftBar.classList.remove(`bar-decrease-${sec}`);
-	rightBar.classList.remove(`bar-decrease-${sec}`);
+	leftCountBar.classList.remove(`bar-decrease-${sec}`);
+	rightCountBar.classList.remove(`bar-decrease-${sec}`);
 
-	void leftBar.offsetWidth; // trick for reset animation
-	void rightBar.offsetWidth;
+	void leftCountBar.offsetWidth; // trick for reset animation
+	void rightCountBar.offsetWidth;
 
 	clearInterval(intervalId);
 }
