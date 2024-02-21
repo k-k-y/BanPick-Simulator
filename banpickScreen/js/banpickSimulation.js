@@ -16,6 +16,9 @@ const rightRedBox = document.querySelectorAll('#red-box');
 const leftActionText = document.querySelectorAll('.banpick__body-left .banpick__text-action');
 const rightActionText = document.querySelectorAll('.banpick__body-right .banpick__text-action');
 
+const leftCountBar = document.querySelector('.banpick__header-middle__left-bar');
+const rightCountBar = document.querySelector('.banpick__header-middle__right-bar');
+
 // pick order
 const pickOrder = [0, 5, 6, 1, 2, 7, 8, 3, 4, 9];
 const champImg = document.querySelectorAll('.banpick__body__champ-info .banpick__champ-img');
@@ -157,31 +160,49 @@ function showAnimation() {
 	}
 }
 
+// Animation - sidebox, video, span, countBar
+
 function createAnimation(index, side) {
 	if (side === 'left') {
 		leftBlueBox[index].classList.add('banpick__blue-box');
-		leftRingImg[index].classList.remove('hide');
-		leftVideo[index].classList.remove('hide');
+		leftRingImg[index].classList.remove('display-none');
+		leftVideo[index].classList.remove('display-none');
 		createSpan(leftActionText[index]);
+
+		if (turnCounter >= 9 && turnCounter <= 19) {
+			leftCountBar.classList.remove('display-none');
+		}
 	} else if (side === 'right') {
 		rightRedBox[index].classList.add('banpick__red-box');
-		rightRingImg[index].classList.remove('hide');
-		rightVideo[index].classList.remove('hide');
+		rightRingImg[index].classList.remove('display-none');
+		rightVideo[index].classList.remove('display-none');
 		createSpan(rightActionText[index]);
+
+		if (turnCounter >= 9 && turnCounter <= 19) {
+			rightCountBar.classList.remove('display-none');
+		}
 	}
 }
 
 function removeAnimation(index, side) {
 	if (side === 'left') {
 		leftBlueBox[index].classList.remove('banpick__blue-box');
-		leftRingImg[index].classList.add('hide');
-		leftVideo[index].classList.add('hide');
+		leftRingImg[index].classList.add('display-none');
+		leftVideo[index].classList.add('display-none');
 		removeSpan(leftActionText[index]);
+
+		if (turnCounter >= 9 && turnCounter <= 19) {
+			leftCountBar.classList.add('display-none');
+		}
 	} else if (side === 'right') {
 		rightRedBox[index].classList.remove('banpick__red-box');
-		rightRingImg[index].classList.add('hide');
-		rightVideo[index].classList.add('hide');
+		rightRingImg[index].classList.add('display-none');
+		rightVideo[index].classList.add('display-none');
 		removeSpan(rightActionText[index]);
+
+		if (turnCounter >= 9 && turnCounter <= 19) {
+			rightCountBar.classList.add('display-none');
+		}
 	}
 }
 
@@ -198,8 +219,12 @@ function removeSpan(target) {
 }
 
 function finishPick() {
-	stopCountDown(30);
+	const headText = document.querySelector('.banpick__header-middle__top span');
 	isElementDisabled = true;
+	stopCountDown(30);
+	countText.innerText = '';
+	headText.innerText = '밴픽이 끝났습니다! 버튼을 눌러 결과창으로 이동해주세요.';
+	readyBtn.innerText = '결과창으로 이동';
 }
 
 readyBtn.addEventListener('click', handleClickReadyBtn);
