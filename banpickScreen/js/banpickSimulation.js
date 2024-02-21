@@ -13,8 +13,9 @@ const rightRingImg = document.querySelectorAll('.banpick__ring-img-rotate-red');
 const leftBlueBox = document.querySelectorAll('#blue-box');
 const rightRedBox = document.querySelectorAll('#red-box');
 
-const leftActionText = document.querySelectorAll('.banpick__body-left .banpick__text-action');
-const rightActionText = document.querySelectorAll('.banpick__body-right .banpick__text-action');
+const texts = document.querySelectorAll('.banpick__champ-text');
+const leftTexts = document.querySelectorAll('.banpick__body-left .banpick__champ-text');
+const rightTexts = document.querySelectorAll('.banpick__body-right .banpick__champ-text');
 
 const leftCountBar = document.querySelector('.banpick__header-middle__left-bar');
 const rightCountBar = document.querySelector('.banpick__header-middle__right-bar');
@@ -108,6 +109,9 @@ function pickChamps() {
 	bannedChampArray.push(img.alt);
 	target.style.backgroundSize = 'cover';
 	clickedElement.firstChild.classList.remove('champ-selected__border', 'champ-hover-selected__border');
+
+	createChampSpan(texts[pickOrder[index]]);
+
 	clickedElement = null;
 	turnCounter++;
 	countDown(30);
@@ -160,14 +164,14 @@ function showAnimation() {
 	}
 }
 
-// Animation - sidebox, video, span, countBar
+// Animation - sidebox, video, action span, countBar
 
 function createAnimation(index, side) {
 	if (side === 'left') {
 		leftBlueBox[index].classList.add('banpick__blue-box');
 		leftRingImg[index].classList.remove('display-none');
 		leftVideo[index].classList.remove('display-none');
-		createSpan(leftActionText[index]);
+		createActionSpan(leftTexts[index]);
 
 		if (turnCounter >= 9 && turnCounter <= 19) {
 			leftCountBar.classList.remove('display-none');
@@ -176,7 +180,7 @@ function createAnimation(index, side) {
 		rightRedBox[index].classList.add('banpick__red-box');
 		rightRingImg[index].classList.remove('display-none');
 		rightVideo[index].classList.remove('display-none');
-		createSpan(rightActionText[index]);
+		createActionSpan(rightTexts[index]);
 
 		if (turnCounter >= 9 && turnCounter <= 19) {
 			rightCountBar.classList.remove('display-none');
@@ -189,7 +193,7 @@ function removeAnimation(index, side) {
 		leftBlueBox[index].classList.remove('banpick__blue-box');
 		leftRingImg[index].classList.add('display-none');
 		leftVideo[index].classList.add('display-none');
-		removeSpan(leftActionText[index]);
+		removeActionSpan(leftTexts[index]);
 
 		if (turnCounter >= 9 && turnCounter <= 19) {
 			leftCountBar.classList.add('display-none');
@@ -198,7 +202,7 @@ function removeAnimation(index, side) {
 		rightRedBox[index].classList.remove('banpick__red-box');
 		rightRingImg[index].classList.add('display-none');
 		rightVideo[index].classList.add('display-none');
-		removeSpan(rightActionText[index]);
+		removeActionSpan(rightTexts[index]);
 
 		if (turnCounter >= 9 && turnCounter <= 19) {
 			rightCountBar.classList.add('display-none');
@@ -206,16 +210,25 @@ function removeAnimation(index, side) {
 	}
 }
 
-function createSpan(target) {
+function createActionSpan(target) {
+	const actionText = target.childNodes[1];
+
 	if (turnCounter >= -1 && turnCounter <= 8) {
-		target.innerText = '금지 중...';
+		actionText.innerText = '금지 중...';
 	} else if (turnCounter >= 9 && turnCounter <= 18) {
-		target.innerText = '선택 중...';
+		actionText.innerText = '선택 중...';
 	}
 }
 
-function removeSpan(target) {
-	target.innerText = '';
+function removeActionSpan(target) {
+	const actionText = target.childNodes[1];
+	actionText.innerText = '';
+}
+
+function createChampSpan(target) {
+	const champText = target.childNodes[5];
+	console.log(clickedElement);
+	champText.innerText = clickedElement.lastChild.innerText;
 }
 
 function finishPick() {
