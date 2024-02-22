@@ -6,11 +6,6 @@ let isElementDisabled = true; // if element disabled, cannot listen events.
 const readyBtn = document.querySelector('#ready-btn'); // main select button
 const championsDiv = document.querySelector('.banpick__body-middle__champions'); // whole champion's parent box.
 
-// about requestChampName.js
-const championsInfoURL = 'https://ddragon.leagueoflegends.com/cdn/14.3.1/data/en_US/champion.json'; // riot API link
-const allChampNames = [];
-// ---------------------------------------------------------------------------------
-
 // about search.js
 const searcher = document.querySelector('.banpick__body-middle__search-op input'); // search input element
 // ---------------------------------------------------------------------------------

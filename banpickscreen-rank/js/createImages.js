@@ -71,3 +71,6 @@ function setChampImageByArray(nameArray) {
 		count++;
 	}
 }
+
+// create images for default
+setChampImageByArray(allChampNames);
