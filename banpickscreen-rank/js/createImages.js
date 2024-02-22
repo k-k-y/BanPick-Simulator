@@ -9,7 +9,7 @@ function addChampImage(imgURL, name, count) {
 
 	const img = document.createElement('img');
 	img.src = imgURL;
-	img.alt = name;
+	img.alt = name.kor;
 
 	// when champion is created 6 times, create new champ row
 	if (count % 6 === 0) {
@@ -29,11 +29,11 @@ function addChampImage(imgURL, name, count) {
 	}
 
 	const champName = document.createElement('span');
-	champName.innerText = name;
+	champName.innerText = name.kor;
 	champDiv.appendChild(champName);
 
 	// create selected champion just before
-	if (clickedElement !== null && clickedElement.firstChild.firstChild.alt === name) {
+	if (clickedElement !== null && clickedElement.firstChild.firstChild.alt === name.kor) {
 		champDiv.classList.add('champ-block-pointer');
 		imgBox.classList.add('champ-selected__border', 'champ-block-pointer');
 		img.classList.add('champ-selected', 'champ-block-pointer');
@@ -41,7 +41,7 @@ function addChampImage(imgURL, name, count) {
 	}
 
 	// create banned | selected champions
-	if (bannedChampArray.includes(name)) {
+	if (bannedChampArray.includes(name.kor)) {
 		champDiv.classList.add('champ-block-pointer');
 		imgBox.classList.add('champ-block-pointer');
 		img.classList.add('champ-selected', 'champ-block-pointer');
@@ -66,7 +66,7 @@ function setChampImageByArray(nameArray) {
 	deleteAllChampImage();
 	let count = 0;
 	for (let name of nameArray) {
-		const imgURL = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${name}.png`;
+		const imgURL = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${name.eng}.png`;
 		addChampImage(imgURL, name, count);
 		count++;
 	}
