@@ -1,6 +1,7 @@
 // implement countDown start, stop
 
 function countDown(sec) {
+	console.log('count down!');
 	stopCountDown(sec);
 	leftCountBar.classList.add(`bar-decrease-${sec}`);
 	rightCountBar.classList.add(`bar-decrease-${sec}`);
@@ -18,6 +19,7 @@ function countDown(sec) {
 }
 
 function stopCountDown(sec) {
+	console.log('stop!');
 	leftCountBar.classList.remove(`bar-decrease-${sec}`);
 	rightCountBar.classList.remove(`bar-decrease-${sec}`);
 

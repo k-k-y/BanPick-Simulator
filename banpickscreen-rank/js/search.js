@@ -31,13 +31,11 @@ function searchByInput(event) {
 
 	// if input is blank, set default state
 	if (inputValue === '') {
-		console.log(1);
 		setChampImageByArray(arr);
 		return;
 	}
 	// case of English
 	else if (inputValue[0].toUpperCase() >= 'A' && inputValue[0].toUpperCase() <= 'Z') {
-		console.log(2);
 		for (let champ of arr) {
 			let isSearched = true;
 			if (inputValue.length <= champ.eng.length) {
@@ -59,11 +57,9 @@ function searchByInput(event) {
 	}
 	// case of Korean
 	else if (inputValue.isComposing) {
-		console.log(3);
 		setChampImageByArray(arr);
 		return;
 	} else {
-		console.log(4);
 		const separatedInput = separateKoreanCharacters(inputValue);
 		for (let champ of arr) {
 			let isSearched = true;
@@ -86,10 +82,6 @@ function searchByInput(event) {
 		}
 	}
 }
-
-// eventListener
-
-searcher.addEventListener('input', searchByInput);
 
 // separating Korean Language to first, middle, last word.
 // ex) "안녕" -> 'ㅇ', 'ㅏ', 'ㄴ', 'ㄴ', 'ㅕ', 'ㅇ'
@@ -195,3 +187,7 @@ function separateKoreanCharacters(koreanString) {
 
 	return result;
 }
+
+// eventListener
+
+searcher.addEventListener('input', searchByInput);

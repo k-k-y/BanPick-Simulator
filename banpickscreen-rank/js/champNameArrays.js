@@ -1,4 +1,5 @@
 // champ name arrays by position
+
 const allChampNames = [
 	{ kor: '가렌', eng: 'Garen' },
 	{ kor: '갈리오', eng: 'Galio' },

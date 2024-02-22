@@ -244,9 +244,9 @@
 
 .banpick__body-middle__champ-img-box {
 	display: flex;
-	width: 65px;
-	height: 65px;
-	border: 2px double #5b5a55;
+	width: 70px;
+	height: 70px;
+	border: 1px solid #5b5a55;
 }
 
 .banpick__body-middle__champ-img-box img {

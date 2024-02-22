@@ -35,19 +35,24 @@
 }
 
 .champ-selected__border {
-	border: 2px solid #ccbe91;
+	border: 1px solid #ccbe91;
 }
 
 .champ-banned__border {
-	border: 2px solid #c5223d;
+	border: 1px solid #c5223d;
 }
 
 .champ-hover-selected__border {
-	border: 2px solid #ccbe91;
+	border-color: #ccbe91;
 }
 
 .champ-hover-banned__border {
-	border: 2px solid #c5223d;
+	border-color: #c5223d;
+}
+
+.champ-hover-selected__border img,
+.champ-hover-banned__border img {
+	filter: brightness(125%);
 }
 
 .champ-block-pointer {
