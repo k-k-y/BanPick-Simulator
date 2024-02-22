@@ -46,11 +46,16 @@ function startBan() {
 function banChamps() {
 	const targetImg = toBanChampArray[turnCounter];
 
-	targetImg.src = clickedElement.firstChild.firstChild.src;
-	bannedChampArray.push(clickedElement.firstChild.firstChild.alt);
-	clickedElement.firstChild.classList.remove('champ-banned__border', 'champ-hover-banned__border');
-	targetImg.parentElement.style.borderColor = 'gray';
+	if (clickedElement === 'timeout') {
+		targetImg.src =
+			'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-unselected-exclusion-disabled.png';
+	} else {
+		targetImg.src = clickedElement.firstChild.firstChild.src;
+		bannedChampArray.push(clickedElement.firstChild.firstChild.alt);
+		clickedElement.firstChild.classList.remove('champ-banned__border', 'champ-hover-banned__border');
+	}
 
+	targetImg.parentElement.style.borderColor = 'gray';
 	clickedElement = null;
 	turnCounter++;
 	countDown(15);
@@ -72,11 +77,15 @@ function startPick() {
 
 	rightBar.classList.add('banpick__header-middle__left-bar-blue');
 	readyBtn.classList.remove('banpick__footers__pick-btn__bg-ban');
-	stopCountDown(15);
+	resetCountDown(15);
 	countDown(30);
 }
 
 function pickChamps() {
+	if (clickedElement === 'timeout') {
+		randomPick();
+	}
+
 	const index = turnCounter - 10;
 	const target = champImg[pickOrder[index]];
 	const img = clickedElement.firstChild.firstChild;
@@ -166,10 +175,25 @@ function createChampSpan(target) {
 function finishPick() {
 	const headText = document.querySelector('.banpick__header-middle__top span');
 	isElementDisabled = true;
-	stopCountDown(30);
+	resetCountDown(30);
 	countText.innerText = '';
 	headText.innerText = '밴픽이 끝났습니다! 버튼을 눌러 결과창으로 이동해주세요.';
 	readyBtn.innerText = '결과창으로 이동';
 }
 
+function randomPick() {
+	const elements = document.querySelectorAll('.banpick__body-middle__champ');
+	let randomNumber = Math.floor(Math.random() * allChampNames.length);
+
+	for (let ban of bannedChampArray) {
+		if (allChampNames[randomNumber] === ban) {
+			randomPick();
+			return;
+		}
+	}
+
+	clickedElement = elements[randomNumber];
+}
+
+// event listener
 readyBtn.addEventListener('click', handleClickReadyBtn);

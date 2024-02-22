@@ -22,11 +22,11 @@
 }
 
 .bar-decrease-30 {
-	animation: barDecrease 30s linear forwards;
-	animation-delay: 1s;
+	animation: barDecrease 31s linear forwards;
+	animation-delay: 0.3s;
 }
 
 .bar-decrease-15 {
 	animation: barDecrease 15s linear forwards;
-	animation-delay: 1s;
+	animation-delay: 0.3s;
 }
