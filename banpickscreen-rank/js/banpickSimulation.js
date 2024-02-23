@@ -48,7 +48,8 @@ function banChamps() {
 
 	if (clickedElement === 'timeout') {
 		targetImg.src =
-			'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-unselected-exclusion-disabled.png';
+			'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/champions_rewards.svg';
+		targetImg.style.filter = 'grayscale(100%)';
 	} else {
 		targetImg.src = clickedElement.firstChild.firstChild.src;
 		bannedChampArray.push(clickedElement.firstChild.firstChild.alt);
@@ -77,6 +78,7 @@ function startPick() {
 
 	rightBar.classList.add('banpick__header-middle__left-bar-blue');
 	readyBtn.classList.remove('banpick__footers__pick-btn__bg-ban');
+
 	resetCountDown(15);
 	countDown(30);
 }
@@ -126,7 +128,7 @@ function createAnimation(index) {
 	infoSideBox[index].classList.remove('display-none');
 	infoRingImg[index].classList.remove('display-none');
 	infoVideo[index].classList.remove('display-none');
-	createActionSpan[infoTexts[index]];
+	createActionSpan(infoTexts[index]);
 
 	if (turnCounter >= 9) {
 		if (turnCounter >= index >= 0 && index <= 4) {
@@ -141,7 +143,7 @@ function removeAnimation(index) {
 	infoSideBox[index].classList.add('display-none');
 	infoRingImg[index].classList.add('display-none');
 	infoVideo[index].classList.add('display-none');
-	removeActionSpan[infoTexts[index]];
+	removeActionSpan(infoTexts[index]);
 
 	if (turnCounter >= 9) {
 		if (index >= 0 && index <= 4) {
@@ -153,7 +155,7 @@ function removeAnimation(index) {
 }
 
 function createActionSpan(target) {
-	const actionText = target.childNodes[1];
+	const actionText = target.children[0];
 
 	if (turnCounter >= -1 && turnCounter <= 8) {
 		actionText.innerText = '금지 중...';
@@ -163,12 +165,12 @@ function createActionSpan(target) {
 }
 
 function removeActionSpan(target) {
-	const actionText = target.childNodes[1];
+	const actionText = target.children[0];
 	actionText.innerText = '';
 }
 
 function createChampSpan(target) {
-	const champText = target.childNodes[5];
+	const champText = target.children[2];
 	champText.innerText = clickedElement.lastChild.innerText;
 }
 

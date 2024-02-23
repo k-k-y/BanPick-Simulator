@@ -34,6 +34,10 @@ function handleClickChamp(event) {
 
 	const cur = event.target;
 
+	if (turnCounter >= 9 && turnCounter <= 18) {
+		isChampSelected[pickOrder[turnCounter - 9]] = true;
+	}
+
 	if (cur.matches('.banpick__body-middle__champ')) {
 		deleteDisabled();
 		selectChamp(cur);

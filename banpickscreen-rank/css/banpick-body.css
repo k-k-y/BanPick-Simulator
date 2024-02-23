@@ -57,8 +57,8 @@
 }
 
 .banpick__body__champ-info .banpick__champ-img {
-	width: 72.38px;
-	height: 80%;
+	width: 75px;
+	height: 75px;
 	border-radius: 50%;
 	margin: 0px 20px;
 	overflow: hidden;
@@ -125,7 +125,6 @@
 }
 
 .banpick__champ-text {
-	width: 60%;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -152,6 +151,31 @@
 .banpick__champ-text .banpick__text-champion {
 	font-size: 16px;
 	font-weight: 600;
+}
+
+.banpick__swap {
+	margin: 20px;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.swap-button {
+	width: 45px;
+	height: 45px;
+	background-image: url('https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-static-assets/global/default/images/left-right-arrows.svg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: inherit;
+}
+
+.swap-button:hover {
+	filter: brightness(150%);
+}
+
+.swap-button:active {
+	filter: brightness(200%);
 }
 
 .banpick__body-middle__selections {
