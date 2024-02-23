@@ -39,6 +39,14 @@ const leftCountBar = document.querySelector('.banpick__header-middle__left-bar')
 const rightCountBar = document.querySelector('.banpick__header-middle__right-bar'); // right count bar
 // ---------------------------------------------------------------------------------
 
-// about chatting
+// about chatting.js
 const inputBox = document.querySelector('#banpick-input'); // chatting input box
 let composing = false; // Korean lauguage have composing, it means completion of one letter.
+// ---------------------------------------------------------------------------------
+
+// about swapElements.js
+const champInfos = document.querySelectorAll('.banpick__body__champ-info');
+const swapBtns = document.querySelectorAll('.banpick__body__champ-info .swap-button');
+const isClicked = [false, false, false, false, false, false, false, false, false, false];
+const isChampSelected = [false, false, false, false, false, false, false, false, false, false];
+// ---------------------------------------------------------------------------------

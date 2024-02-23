@@ -37,28 +37,53 @@ function handleClickSwapBtn(event) {
 		}
 	}
 
+	if (!isClicked[index]) {
+		swapBtns[index].classList.add('swap-button-clicked');
+	} else {
+		swapBtns[index].classList.remove('swap-button-clicked');
+	}
+
 	isClicked[index] = !isClicked[index]; // toggle
 
-	if (index >= 0 && index <= 4) {
-		// left side
-		if (isClicked[index] === true) {
-			for (let i = 0; i < 5; i++) {
+	if (isClicked[index] === true) {
+		if (index >= 0 && index <= 4) {
+			// left side
+			for (let i = 0; i <= 4; i++) {
 				if (i !== index && isClicked[i] === true) {
 					swapChampInfo(index, i);
 					isClicked[index] = false;
 					isClicked[i] = false;
+					swapBtns[index].classList.remove('swap-button-clicked');
+					swapBtns[i].classList.remove('swap-button-clicked');
 					break;
 				}
 			}
-		}
-	} else if (index >= 5 && index <= 9) {
-		// right side
-		if (isClicked[index] === true) {
-			for (let i = 5; i < 10; i++) {
+			// other side's button is clicked
+			for (let i = 5; i <= 9; i++) {
+				if (isClicked[i] === true) {
+					isClicked[i] = false;
+					swapBtns[i].classList.remove('swap-button-clicked');
+					break;
+				}
+			}
+		} else if (index >= 5 && index <= 9) {
+			// right side
+			for (let i = 5; i <= 9; i++) {
 				if (i !== index && isClicked[i] === true) {
 					swapChampInfo(index, i);
 					isClicked[index] = false;
 					isClicked[i] = false;
+					swapBtns[index].classList.remove('swap-button-clicked');
+					swapBtns[i].classList.remove('swap-button-clicked');
+					break;
+				}
+			}
+
+			// other side's button is clicked
+			for (let i = 0; i <= 4; i++) {
+				if (isClicked[i] === true) {
+					isClicked[i] = false;
+					swapBtns[i].classList.remove('swap-button-clicked');
 					break;
 				}
 			}
@@ -75,10 +100,6 @@ function whatLine(elem) {
 }
 
 // EventListener
-const champInfos = document.querySelectorAll('.banpick__body__champ-info');
-const swapBtns = document.querySelectorAll('.banpick__body__champ-info .swap-button');
-const isClicked = [false, false, false, false, false, false, false, false, false, false];
-const isChampSelected = [false, false, false, false, false, false, false, false, false, false];
 
 for (let button of swapBtns) {
 	button.addEventListener('click', handleClickSwapBtn);
