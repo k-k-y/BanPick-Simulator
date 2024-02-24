@@ -5,6 +5,9 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	font-family: 'Noto Sans KR', sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
 }
 
 .banpick__header-left,
