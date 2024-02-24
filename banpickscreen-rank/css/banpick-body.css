@@ -174,9 +174,12 @@
 	filter: brightness(150%);
 }
 
+.swap-button:active {
+	filter: brightness(200%);
+}
+
 .swap-button-clicked {
 	filter: brightness(200%);
-	pointer-events: none;
 }
 
 .banpick__body-middle__selections {

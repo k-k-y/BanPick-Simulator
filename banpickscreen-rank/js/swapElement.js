@@ -88,6 +88,9 @@ function handleClickSwapBtn(event) {
 				}
 			}
 		}
+	} else if (isClicked[index] === false) {
+		// click same button twice
+		swapBtn[index].classList.remove('swap-button-clicked');
 	}
 }
 
