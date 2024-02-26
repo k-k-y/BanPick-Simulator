@@ -71,12 +71,12 @@ function showBanImage() {
 
 function startPick() {
 	const headText = document.querySelector('.banpick__header-middle__top span');
-	const rightBar = document.querySelector('.banpick__header-middle__left-bar');
+	const leftBar = document.querySelector('.banpick__header-middle__left-bar');
 
 	headText.innerText = '챔피언을 선택하세요!';
 	readyBtn.innerText = '챔피언 선택';
 
-	rightBar.classList.add('banpick__header-middle__left-bar-blue');
+	leftBar.classList.add('banpick__header-middle__left-bar-blue');
 	readyBtn.classList.remove('banpick__footers__pick-btn__bg-ban');
 
 	resetCountDown(15);
