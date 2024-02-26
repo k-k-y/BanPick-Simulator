@@ -1,7 +1,5 @@
 // implement whole banpick procedure
 
-const tournamentBanIndex = [4, 5, 3, 6, 2, 7, 1, 8, 0, 9];
-const tournamentPickIndex = [0, 5, 6, 1, 2, 7, 3, 8, 9, 4];
 function handleClickReadyBtn() {
 	// turnCounter === -1 : before start stage
 	// turnCounter === 0 ~ 5 : first ban stage
