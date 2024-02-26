@@ -6,7 +6,7 @@ function handleClickReadyBtn() {
 	// turnCounter === 6 ~ 11 : first pick stage
 	// turnCounter === 12 ~ 15 : second ban stage
 	// turnCounter === 16 ~ 19 : second pick stage
-	// turnCOunter === 20 : finish stage
+	// turnCounter === 20 : finish stage
 
 	console.log(turnCounter);
 

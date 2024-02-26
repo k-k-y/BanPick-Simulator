@@ -308,7 +308,6 @@ const midChampNames = [
 ];
 
 const adcChampNames = [
-	,
 	{ kor: '아펠리오스', eng: 'Aphelios' },
 	{ kor: '애쉬', eng: 'Ashe' },
 	{ kor: '케이틀린', eng: 'Caitlyn' },

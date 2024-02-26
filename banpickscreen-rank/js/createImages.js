@@ -65,6 +65,7 @@ function deleteAllChampImage() {
 function setChampImageByArray(nameArray) {
 	deleteAllChampImage();
 	let count = 0;
+	console.log(nameArray);
 	for (let name of nameArray) {
 		const imgURL = `https://ddragon.leagueoflegends.com/cdn/14.3.1/img/champion/${name.eng}.png`;
 		addChampImage(imgURL, name, count);
