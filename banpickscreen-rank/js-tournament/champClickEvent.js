@@ -35,9 +35,9 @@ function handleClickChamp(event) {
 	const cur = event.target;
 
 	if (turnCounter >= 6 && turnCounter <= 11) {
-		isChampSelected[tournamentPickIndex[turnCounter - 6]] = true;
+		isChampPicked[tournamentPickIndex[turnCounter - 6]] = true;
 	} else if (turnCounter >= 16 && turnCounter <= 19) {
-		isChampSelected[tournamentPickIndex[turnCounter - 5]] = true;
+		isChampPicked[tournamentPickIndex[turnCounter - 5]] = true;
 	}
 
 	if (cur.matches('.banpick__body-middle__champ')) {

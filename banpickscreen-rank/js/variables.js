@@ -53,6 +53,6 @@ let composing = false; // Korean lauguage have composing, it means completion of
 // about swapElements.js
 const champInfos = document.querySelectorAll('.banpick__body__champ-info');
 const swapBtns = document.querySelectorAll('.banpick__body__champ-info .swap-button');
-const isClicked = [false, false, false, false, false, false, false, false, false, false];
-const isChampSelected = [false, false, false, false, false, false, false, false, false, false];
+const isSwapBtnClicked = [false, false, false, false, false, false, false, false, false, false];
+const isChampPicked = [false, false, false, false, false, false, false, false, false, false];
 // ---------------------------------------------------------------------------------
