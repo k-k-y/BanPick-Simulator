@@ -29,8 +29,8 @@ function handleClickReadyBtn() {
 		pickChamps();
 	} else if (turnCounter === 11 && clickedElement != null) {
 		showAnimation();
-		pickChamps();
 		showBanImage();
+		pickChamps();
 		restartBan();
 	} else if (turnCounter >= 12 && turnCounter <= 14 && clickedElement != null) {
 		showAnimation();
