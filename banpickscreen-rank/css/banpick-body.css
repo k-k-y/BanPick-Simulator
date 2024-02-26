@@ -12,6 +12,7 @@
 	display: flex;
 	width: 100vw;
 	height: 60vh;
+	font-family: 'Raleway', Arial, sans-serif;
 }
 
 .banpick__body button {
@@ -45,9 +46,6 @@
 	border-image-slice: 1;
 	border-top: 2px solid;
 	align-items: center;
-	font-family: 'Noto Sans KR', sans-serif;
-	font-optical-sizing: auto;
-	font-style: normal;
 }
 
 .banpick__body__champ-info:last-of-type {
@@ -148,12 +146,12 @@
 }
 .banpick__champ-text .banpick__text-line {
 	font-size: 16px;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .banpick__champ-text .banpick__text-champion {
 	font-size: 16px;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .banpick__swap {

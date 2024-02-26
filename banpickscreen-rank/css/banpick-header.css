@@ -1,13 +1,10 @@
 .banpick__header {
-	margin-top: 20px;
+	margin-top: 40px;
 	height: 50px;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	font-family: 'Noto Sans KR', sans-serif;
-	font-optical-sizing: auto;
-	font-style: normal;
 }
 
 .banpick__header-left,
@@ -53,7 +50,6 @@
 .banpick__header-middle__top {
 	font-size: 25px;
 	font-weight: 700;
-	margin-bottom: 2px;
 }
 
 .banpick__header-middle__num-count {
@@ -70,6 +66,7 @@
 }
 
 .banpick__header-middle__bar-box {
+	top: 10px;
 	margin: 10px;
 	width: 20vw;
 	height: 5px;
