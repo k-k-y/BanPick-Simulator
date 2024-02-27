@@ -10,9 +10,15 @@ const championsDiv = document.querySelector('.banpick__body-middle__champions');
 const searcher = document.querySelector('.banpick__body-middle__search-op input'); // search input element
 // ---------------------------------------------------------------------------------
 
-// about banpickSimulation.js
-const pickOrder = [0, 5, 6, 1, 2, 7, 8, 3, 4, 9]; // pick stage's order
+// about banpick Simulation
 const toBanChampArray = document.querySelectorAll('.banpick__header .banpick__champ-img img'); // 10 ban boxs
+
+const pickOrder = [0, 5, 6, 1, 2, 7, 8, 3, 4, 9]; // rank pick stage's order
+const tournamentBanIndex = [4, 5, 3, 6, 2, 7, 1, 8, 0, 9]; // tournament ban stage's order
+const tournamentPickIndex = [0, 5, 6, 1, 2, 7, 3, 8, 9, 4]; // tournament pick stage's order
+
+// about banpickSimulation.js
+
 // 10 side champ-info elements. Showed when champ-info activated
 const infoVideo = document.querySelectorAll('.banpick__body .banpick__body__champ-info video'); // side video
 const infoRingImg = document.querySelectorAll("[class*='banpick__ring-img-rotate']"); // side rotate ring
@@ -47,6 +53,6 @@ let composing = false; // Korean lauguage have composing, it means completion of
 // about swapElements.js
 const champInfos = document.querySelectorAll('.banpick__body__champ-info');
 const swapBtns = document.querySelectorAll('.banpick__body__champ-info .swap-button');
-const isClicked = [false, false, false, false, false, false, false, false, false, false];
-const isChampSelected = [false, false, false, false, false, false, false, false, false, false];
+const isSwapBtnClicked = [false, false, false, false, false, false, false, false, false, false];
+const isChampPicked = [false, false, false, false, false, false, false, false, false, false];
 // ---------------------------------------------------------------------------------

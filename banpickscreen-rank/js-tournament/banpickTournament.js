@@ -2,25 +2,43 @@
 
 function handleClickReadyBtn() {
 	// turnCounter === -1 : before start stage
-	// turnCounter === 0 ~ 9 : ban stage
-	// turnCounter === 9 : ban stage end, pick stage start
-	// turnCounter === 9 ~ 19 : pick stage
-	// turnCounter === 20 : finish stage
+	// turnCounter === 0 ~ 5 : first ban stage
+	// turnCounter === 6 ~ 11 : first pick stage
+	// turnCounter === 12 ~ 15 : second ban stage
+	// turnCounter === 16 ~ 19 : second pick stage
+	// turnCOunter === 20 : finish stage
 
 	console.log(turnCounter);
 
 	if (turnCounter === -1) {
 		showAnimation();
+		showBanImage();
 		startBan();
-	} else if (turnCounter >= 0 && turnCounter <= 8 && clickedElement !== null) {
+	} else if (turnCounter >= 0 && turnCounter <= 4 && clickedElement !== null) {
 		showAnimation();
 		showBanImage();
 		banChamps();
-	} else if (turnCounter === 9 && clickedElement !== null) {
+	} else if (turnCounter === 5 && clickedElement !== null) {
 		showAnimation();
 		banChamps();
 		startPick();
-	} else if (turnCounter >= 10 && turnCounter <= 18 && clickedElement !== null) {
+	} else if (turnCounter >= 6 && turnCounter <= 10 && clickedElement !== null) {
+		showAnimation();
+		pickChamps();
+	} else if (turnCounter === 11 && clickedElement != null) {
+		showAnimation();
+		showBanImage();
+		pickChamps();
+		restartBan();
+	} else if (turnCounter >= 12 && turnCounter <= 14 && clickedElement != null) {
+		showAnimation();
+		showBanImage();
+		banChamps();
+	} else if (turnCounter === 15 && clickedElement != null) {
+		showAnimation();
+		banChamps();
+		startPick();
+	} else if (turnCounter >= 16 && turnCounter <= 18 && clickedElement != null) {
 		showAnimation();
 		pickChamps();
 	} else if (turnCounter === 19 && clickedElement != null) {
@@ -38,13 +56,32 @@ function startBan() {
 	readyBtn.classList.add('banpick__footers__pick-btn__bg-ban');
 
 	countDown(15);
-	showBanImage();
 	turnCounter++;
 	isElementDisabled = false;
 }
 
+function restartBan() {
+	const headText = document.querySelector('.banpick__header-middle__top span');
+	const leftBar = document.querySelector('.banpick__header-middle__left-bar');
+
+	headText.innerText = '챔피언을 금지할 차례입니다!';
+	readyBtn.innerText = '챔피언 선택 금지 (밴)';
+	readyBtn.classList.add('banpick__footers__pick-btn__bg-ban');
+	leftBar.classList.remove('banpick__header-middle__left-bar-blue');
+	resetCountDown(30);
+	countDown(15);
+	isElementDisabled = false;
+}
+
 function banChamps() {
-	const targetImg = toBanChampArray[turnCounter];
+	let index;
+	if (turnCounter >= 0 && turnCounter <= 5) {
+		index = turnCounter;
+	} else if (turnCounter >= 12 && turnCounter <= 15) {
+		index = turnCounter - 6;
+	}
+
+	const targetImg = toBanChampArray[tournamentBanIndex[index]];
 
 	if (clickedElement === 'timeout') {
 		targetImg.src =
@@ -63,20 +100,26 @@ function banChamps() {
 }
 
 function showBanImage() {
-	toBanChampArray[turnCounter + 1].src =
+	let index;
+	if (turnCounter >= -1 && turnCounter <= 5) {
+		index = turnCounter + 1;
+	} else if (turnCounter >= 11 && turnCounter <= 14) {
+		index = turnCounter - 5;
+	}
+	toBanChampArray[tournamentBanIndex[index]].src =
 		'https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-fill-red.png';
-	toBanChampArray[turnCounter + 1].parentElement.style.opacity = 0.7;
-	toBanChampArray[turnCounter + 1].parentElement.style.borderColor = '#c5223d';
+	toBanChampArray[tournamentBanIndex[index]].parentElement.style.opacity = 0.7;
+	toBanChampArray[tournamentBanIndex[index]].parentElement.style.borderColor = '#c5223d';
 }
 
 function startPick() {
 	const headText = document.querySelector('.banpick__header-middle__top span');
-	const rightBar = document.querySelector('.banpick__header-middle__left-bar');
+	const leftBar = document.querySelector('.banpick__header-middle__left-bar');
 
 	headText.innerText = '챔피언을 선택하세요!';
 	readyBtn.innerText = '챔피언 선택';
 
-	rightBar.classList.add('banpick__header-middle__left-bar-blue');
+	leftBar.classList.add('banpick__header-middle__left-bar-blue');
 	readyBtn.classList.remove('banpick__footers__pick-btn__bg-ban');
 
 	resetCountDown(15);
@@ -88,8 +131,14 @@ function pickChamps() {
 		randomPick();
 	}
 
-	const index = turnCounter - 10;
-	const target = champImg[pickOrder[index]];
+	let index;
+	if (turnCounter >= 6 && turnCounter <= 11) {
+		index = turnCounter - 6;
+	} else if (turnCounter >= 16 && turnCounter <= 19) {
+		index = turnCounter - 10;
+	}
+
+	const target = champImg[tournamentPickIndex[index]];
 	const img = clickedElement.firstChild.firstChild;
 
 	target.style.backgroundImage = `url(${img.src})`;
@@ -97,7 +146,7 @@ function pickChamps() {
 	target.style.backgroundSize = 'cover';
 	clickedElement.firstChild.classList.remove('champ-selected__border', 'champ-hover-selected__border');
 
-	createChampSpan(infoTexts[pickOrder[index]]);
+	createChampSpan(infoTexts[tournamentPickIndex[index]]);
 
 	clickedElement = null;
 	turnCounter++;
@@ -105,20 +154,29 @@ function pickChamps() {
 }
 
 function showAnimation() {
-	const pickIndex = turnCounter - 9;
-	if (turnCounter === -1) {
-		createAnimation(turnCounter + 1);
-	} else if (turnCounter >= 0 && turnCounter <= 8) {
-		createAnimation(turnCounter + 1);
-		removeAnimation(turnCounter);
-	} else if (turnCounter === 9) {
-		removeAnimation(turnCounter);
-		createAnimation(pickOrder[pickIndex]);
-	} else if (turnCounter >= 10 && turnCounter <= 18) {
-		removeAnimation(pickOrder[pickIndex - 1]);
-		createAnimation(pickOrder[pickIndex]);
+	if (turnCounter === -1 || turnCounter === 1 || turnCounter === 3 || turnCounter === 11 || turnCounter === 13) {
+		removeAnimation(5);
+		createAnimation(0);
+	} else if (turnCounter === 0 || turnCounter === 2 || turnCounter === 4 || turnCounter === 12 || turnCounter === 14) {
+		removeAnimation(0);
+		createAnimation(5);
+	}
+	if (turnCounter === 5) {
+		removeAnimation(5);
+		createAnimation(tournamentPickIndex[turnCounter - 5]);
+	} else if (turnCounter >= 6 && turnCounter <= 10) {
+		removeAnimation(tournamentPickIndex[turnCounter - 6]);
+		createAnimation(tournamentPickIndex[turnCounter - 5]);
+	} else if (turnCounter === 11) {
+		removeAnimation(tournamentPickIndex[turnCounter - 6]);
+	} else if (turnCounter === 15) {
+		removeAnimation(5);
+		createAnimation(tournamentPickIndex[turnCounter - 9]);
+	} else if (turnCounter >= 16 && turnCounter <= 18) {
+		removeAnimation(tournamentPickIndex[turnCounter - 10]);
+		createAnimation(tournamentPickIndex[turnCounter - 9]);
 	} else if (turnCounter === 19) {
-		removeAnimation(pickOrder[pickIndex - 1]);
+		removeAnimation(tournamentPickIndex[turnCounter - 10]);
 	}
 }
 
@@ -130,12 +188,10 @@ function createAnimation(index) {
 	infoVideo[index].classList.remove('display-none');
 	createActionSpan(infoTexts[index]);
 
-	if (turnCounter >= 9) {
-		if (turnCounter >= index >= 0 && index <= 4) {
-			leftCountBar.classList.remove('display-none');
-		} else if (index >= 5 && index <= 9) {
-			rightCountBar.classList.remove('display-none');
-		}
+	if (index >= 0 && index <= 4) {
+		leftCountBar.classList.remove('display-none');
+	} else if (index >= 5 && index <= 9) {
+		rightCountBar.classList.remove('display-none');
 	}
 }
 
@@ -145,21 +201,19 @@ function removeAnimation(index) {
 	infoVideo[index].classList.add('display-none');
 	removeActionSpan(infoTexts[index]);
 
-	if (turnCounter >= 9) {
-		if (index >= 0 && index <= 4) {
-			leftCountBar.classList.add('display-none');
-		} else if (index >= 5 && index <= 9) {
-			rightCountBar.classList.add('display-none');
-		}
+	if (index >= 0 && index <= 4) {
+		leftCountBar.classList.add('display-none');
+	} else if (index >= 5 && index <= 9) {
+		rightCountBar.classList.add('display-none');
 	}
 }
 
 function createActionSpan(target) {
 	const actionText = target.children[0];
 
-	if (turnCounter >= -1 && turnCounter <= 8) {
+	if ((turnCounter >= -1 && turnCounter <= 4) || (turnCounter >= 11 && turnCounter <= 14)) {
 		actionText.innerText = '금지 중...';
-	} else if (turnCounter >= 9 && turnCounter <= 18) {
+	} else {
 		actionText.innerText = '선택 중...';
 	}
 }

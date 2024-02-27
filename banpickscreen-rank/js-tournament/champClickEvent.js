@@ -2,7 +2,7 @@
 
 function deleteDisabled() {
 	let status = '';
-	if (turnCounter >= 0 && turnCounter <= 9) {
+	if ((turnCounter >= 0 && turnCounter <= 5) || (turnCounter >= 12 && turnCounter <= 15)) {
 		status = 'banned';
 	} else {
 		status = 'selected';
@@ -17,7 +17,7 @@ function deleteDisabled() {
 
 function selectChamp(cur) {
 	let status = '';
-	if (turnCounter >= 0 && turnCounter <= 9) {
+	if ((turnCounter >= 0 && turnCounter <= 5) || (turnCounter >= 12 && turnCounter <= 15)) {
 		status = 'banned';
 	} else {
 		status = 'selected';
@@ -34,8 +34,10 @@ function handleClickChamp(event) {
 
 	const cur = event.target;
 
-	if (turnCounter >= 9 && turnCounter <= 18) {
-		isChampSelected[pickOrder[turnCounter - 9]] = true;
+	if (turnCounter >= 6 && turnCounter <= 11) {
+		isChampPicked[tournamentPickIndex[turnCounter - 6]] = true;
+	} else if (turnCounter >= 16 && turnCounter <= 19) {
+		isChampPicked[tournamentPickIndex[turnCounter - 5]] = true;
 	}
 
 	if (cur.matches('.banpick__body-middle__champ')) {
@@ -56,7 +58,7 @@ function handleMouseoverChamp(event) {
 	const cur = event.target;
 
 	let status = '';
-	if (turnCounter >= 0 && turnCounter <= 9) {
+	if ((turnCounter >= 0 && turnCounter <= 5) || (turnCounter >= 12 && turnCounter <= 15)) {
 		status = 'banned';
 	} else {
 		status = 'selected';
@@ -77,7 +79,7 @@ function handleMouseoutChamp(event) {
 	const cur = event.target;
 
 	let status = '';
-	if (turnCounter >= 0 && turnCounter <= 9) {
+	if ((turnCounter >= 0 && turnCounter <= 5) || (turnCounter >= 12 && turnCounter <= 15)) {
 		status = 'banned';
 	} else {
 		status = 'selected';

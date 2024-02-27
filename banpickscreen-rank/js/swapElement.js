@@ -16,12 +16,12 @@ function swapChampInfo(index1, index2) {
 
 	line1 = whatLine(lineText[index1]);
 	line2 = whatLine(lineText[index2]);
-	if (!isChampSelected[index1]) {
+	if (!isChampPicked[index1]) {
 		champImg[
 			index1
 		].style.backgroundImage = `url("https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-${line2}-${color}.png")`;
 	}
-	if (!isChampSelected[index2]) {
+	if (!isChampPicked[index2]) {
 		champImg[
 			index2
 		].style.backgroundImage = `url("https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-parties/global/default/icon-position-${line1}-${color}.png")`;
@@ -37,22 +37,22 @@ function handleClickSwapBtn(event) {
 		}
 	}
 
-	if (!isClicked[index]) {
+	if (!isSwapBtnClicked[index]) {
 		swapBtns[index].classList.add('swap-button-clicked');
 	} else {
 		swapBtns[index].classList.remove('swap-button-clicked');
 	}
 
-	isClicked[index] = !isClicked[index]; // toggle
+	isSwapBtnClicked[index] = !isSwapBtnClicked[index]; // toggle
 
-	if (isClicked[index] === true) {
+	if (isSwapBtnClicked[index] === true) {
 		if (index >= 0 && index <= 4) {
 			// left side
 			for (let i = 0; i <= 4; i++) {
-				if (i !== index && isClicked[i] === true) {
+				if (i !== index && isSwapBtnClicked[i] === true) {
 					swapChampInfo(index, i);
-					isClicked[index] = false;
-					isClicked[i] = false;
+					isSwapBtnClicked[index] = false;
+					isSwapBtnClicked[i] = false;
 					swapBtns[index].classList.remove('swap-button-clicked');
 					swapBtns[i].classList.remove('swap-button-clicked');
 					break;
@@ -60,8 +60,8 @@ function handleClickSwapBtn(event) {
 			}
 			// other side's button is clicked
 			for (let i = 5; i <= 9; i++) {
-				if (isClicked[i] === true) {
-					isClicked[i] = false;
+				if (isSwapBtnClicked[i] === true) {
+					isSwapBtnClicked[i] = false;
 					swapBtns[i].classList.remove('swap-button-clicked');
 					break;
 				}
@@ -69,10 +69,10 @@ function handleClickSwapBtn(event) {
 		} else if (index >= 5 && index <= 9) {
 			// right side
 			for (let i = 5; i <= 9; i++) {
-				if (i !== index && isClicked[i] === true) {
+				if (i !== index && isSwapBtnClicked[i] === true) {
 					swapChampInfo(index, i);
-					isClicked[index] = false;
-					isClicked[i] = false;
+					isSwapBtnClicked[index] = false;
+					isSwapBtnClicked[i] = false;
 					swapBtns[index].classList.remove('swap-button-clicked');
 					swapBtns[i].classList.remove('swap-button-clicked');
 					break;
@@ -81,14 +81,14 @@ function handleClickSwapBtn(event) {
 
 			// other side's button is clicked
 			for (let i = 0; i <= 4; i++) {
-				if (isClicked[i] === true) {
-					isClicked[i] = false;
+				if (isSwapBtnClicked[i] === true) {
+					isSwapBtnClicked[i] = false;
 					swapBtns[i].classList.remove('swap-button-clicked');
 					break;
 				}
 			}
 		}
-	} else if (isClicked[index] === false) {
+	} else if (isSwapBtnClicked[index] === false) {
 		// click same button twice
 		swapBtn[index].classList.remove('swap-button-clicked');
 	}
